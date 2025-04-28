@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface CreateSchedulePage {
+    public void checkScheduleHistory() throws Exception ;
     public Boolean isWeekGenerated() throws Exception;
     public Boolean isWeekPublished() throws Exception;
     public void generateSchedule() throws Exception;

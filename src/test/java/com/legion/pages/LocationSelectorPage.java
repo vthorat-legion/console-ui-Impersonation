@@ -37,7 +37,7 @@ public interface LocationSelectorPage {
 	public void searchSpecificBUAndNavigateTo(String buText);
 	public void searchSpecificRegionAndNavigateTo(String regionText) throws Exception;
 	public void searchSpecificUpperFieldAndNavigateTo(String districtText) throws Exception;
-//	public void searchSpecificLocationAndNavigateTo(String locationName) throws Exception;
+	public void searchSpecificLocationAndNavigateTo(String locationName) throws Exception;
 	public void changeLocationDirect(String locationName);
 	public Map<String, String> getSelectedUpperFields () throws Exception;
 	public void changeUpperFieldDirect(String upperFieldType, String upperFieldName) throws Exception;

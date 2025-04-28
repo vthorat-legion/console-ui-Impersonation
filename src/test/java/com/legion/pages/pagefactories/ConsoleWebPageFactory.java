@@ -73,6 +73,11 @@ public class ConsoleWebPageFactory implements PageFactory {
 	}
 
 	@Override
+	public ImpersonationPage ConsoleImpersonationPage() {
+		return new ConsoleImpersonationPage();
+	}
+
+	@Override
 	public TrafficForecastPage createTrafficForecastPage() {
 		return new ConsoleTrafficForecastPage();
 	}

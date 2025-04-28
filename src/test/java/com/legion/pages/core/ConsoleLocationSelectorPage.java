@@ -1273,33 +1273,33 @@ public class ConsoleLocationSelectorPage extends BasePage implements LocationSel
     @FindBy(css = "img.search-icon")
     private WebElement upperFieldSearchIcon;
 
-//    @Override
-//    public void searchSpecificLocationAndNavigateTo(String locationName) throws Exception {
-//        Boolean isLocationMatched = false;
-//        if (isElementLoaded(upperFieldSearchIcon, 10)){
-//            clickTheElement(upperFieldSearchIcon);
-//        }
-//        searchLocationAndSelect(locationName);
-//        List<WebElement> locationItems = new ArrayList<>();
-//        waitForSeconds(5);
-//        if (areListElementVisible(districtAndLocationDropDownList, 15) && districtAndLocationDropDownList.size() > 0){
-//            locationItems = districtAndLocationDropDownList.get(0).findElements(By.cssSelector("div.lg-search-options__option"));
-//        }
-//        if (locationItems.size() > 0) {
-//            for (WebElement locationItem : locationItems) {
-//                if (locationItem.getText().contains(locationName)) {
-//                    isLocationMatched = true;
-//                    click(locationItem);
-//                    SimpleUtils.pass("Location changed successfully to '" + locationName + "'");
-//                    break;
-//                }
-//            }
-//        }
-//
-//        if (!isLocationMatched) {
-//            SimpleUtils.fail("Location does not match with '" + locationName + "'", false);
-//        }
-//    }
+    @Override
+    public void searchSpecificLocationAndNavigateTo(String locationName) throws Exception {
+        Boolean isLocationMatched = false;
+        if (isElementLoaded(upperFieldSearchIcon, 10)){
+            clickTheElement(upperFieldSearchIcon);
+        }
+        searchLocationAndSelect(locationName);
+        List<WebElement> locationItems = new ArrayList<>();
+        waitForSeconds(5);
+        if (areListElementVisible(districtAndLocationDropDownList, 15) && districtAndLocationDropDownList.size() > 0){
+            locationItems = districtAndLocationDropDownList.get(0).findElements(By.cssSelector("div.lg-search-options__option"));
+        }
+        if (locationItems.size() > 0) {
+            for (WebElement locationItem : locationItems) {
+                if (locationItem.getText().contains(locationName)) {
+                    isLocationMatched = true;
+                    click(locationItem);
+                    SimpleUtils.pass("Location changed successfully to '" + locationName + "'");
+                    break;
+                }
+            }
+        }
+
+        if (!isLocationMatched) {
+            SimpleUtils.fail("Location does not match with '" + locationName + "'", false);
+        }
+    }
 
     @Override
     public void changeUpperFieldsByMagnifyGlassIcon(String upperfiledNavigaTo) {

@@ -8,7 +8,6 @@ import com.legion.tests.core.ScheduleTestKendraScott2;
 import com.legion.utils.JsonUtil;
 import com.legion.utils.MyThreadLocal;
 import com.legion.utils.SimpleUtils;
-import cucumber.api.java.an.E;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

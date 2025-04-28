@@ -31,6 +31,8 @@ public interface PageFactory {
     ScheduleOverviewPage createScheduleOverviewPage();
     
     SchedulePage createConsoleScheduleNewUIPage();
+
+    ImpersonationPage ConsoleImpersonationPage();
     
     TrafficForecastPage createTrafficForecastPage();
     

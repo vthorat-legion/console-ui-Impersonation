@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface LocationsPage {
-
+    public void NavigateToControlCenter() throws Exception ;
     public void clickModelSwitchIconInDashboardPage(String value) throws Exception;
     public void setLaborBudgetLevel(boolean isCentral,String level);
 

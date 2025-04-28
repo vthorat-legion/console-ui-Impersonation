@@ -11,8 +11,10 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 public class ExtentReportManager {
 	
 	public static ExtentReports extent;
-    private static final String OUTPUT_FOLDER = "test-output/";
-    private static final String FILE_NAME = "htmlReporter.html";
+//    private static final String OUTPUT_FOLDER = "test-output/";
+    private static final String OUTPUT_FOLDER = ".//Reports//";
+
+    private static final String FILE_NAME = "Impersonation.html";
     
     public static ExtentReports getInstance() {
     	

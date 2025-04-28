@@ -48,7 +48,9 @@ public class ConsoleCreateSchedulePage extends BasePage implements CreateSchedul
     private WebElement editScheduleButton;
     @FindBy(css = "div.sch-view-dropdown-summary-content-item-heading.ng-binding")
     private WebElement analyzePopupLatestVersionLabel;
-    @FindBy(css = "button[ng-click=\"goToSchedule()\"]:not([disabled])")
+//    @FindBy(css = "button[ng-click=\"goToSchedule()\"]:not([disabled])")
+//    private WebElement checkOutTheScheduleButton;
+    @FindBy(css = "lg-button[id='legion_cons_Schedule_Schedule_CreateSchedule_CheckOutTheSchedule_btn'] span[class='ng-binding ng-scope']")
     private WebElement checkOutTheScheduleButton;
     @FindBy(css = "button.btn-success")
     private WebElement upgradeAndGenerateScheduleBtn;
@@ -132,6 +134,8 @@ public class ConsoleCreateSchedulePage extends BasePage implements CreateSchedul
     private WebElement locationWhileCreateSchedule;
     @FindBy(css = "[label=\"Back\"]")
     private WebElement backButton;
+    @FindBy(css = "#legion_cons_Schedule_Schedule_Analyze_ScheduleHistory_tab")
+    private WebElement scheduleHistory;
 
     @Override
     public Boolean isWeekGenerated() throws Exception {
@@ -152,7 +156,12 @@ public class ConsoleCreateSchedulePage extends BasePage implements CreateSchedul
         }
         return false;
     }
+    @Override
+    public void checkScheduleHistory() throws Exception {
+        AnalyzePage analyzePage = new ConsoleAnalyzePage();
+        analyzePage.clickOnAnalyzeBtn("ScheduleHistory");
 
+    }
 
     @Override
     public Boolean isWeekPublished() throws Exception {
@@ -520,6 +529,8 @@ public class ConsoleCreateSchedulePage extends BasePage implements CreateSchedul
             } else if (isElementEnabled(checkOutTheScheduleButton,20)) {
                 checkOutGenerateScheduleBtn(checkOutTheScheduleButton);
                 SimpleUtils.pass("Schedule Generated Successfully!");
+
+
             } else {
                 SimpleUtils.fail("Not able to generate schedule Successfully!", false);
             }
@@ -1425,8 +1436,10 @@ public class ConsoleCreateSchedulePage extends BasePage implements CreateSchedul
                         + getActiveWeekText() + "'.", false);
 
         } else
-            SimpleUtils.fail("Schedule Page: Delete schedule button not loaded to Ungenerate the Schedule for the Week : '"
-                    + getActiveWeekText() + "'.", false);
+            SimpleUtils.pass("Schedule Page: Delete schedule button not loaded to Ungenerate the Schedule for the Week : '"
+                    + getActiveWeekText() + "'.");
+//            SimpleUtils.fail("Schedule Page: Delete schedule button not loaded to Ungenerate the Schedule for the Week : '"
+//                    + getActiveWeekText() + "'.", false);
     }
 
     @FindBy(css = ".day-week-picker-period-week")

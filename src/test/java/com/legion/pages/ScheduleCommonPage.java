@@ -43,6 +43,9 @@ public interface ScheduleCommonPage {
     public Map<String, String> getActiveDayInfo() throws Exception;
     public String getHeaderOnSchedule() throws Exception;
     public void verifyHeaderOnSchedule() throws Exception;
+
+    void goToSpecificWeekByDateNew(String date) throws Exception;
+
     public List<String> getYearsFromCalendarMonthYearText() throws Exception;
     public void goToSchedule() throws Exception;
     public boolean isSpecifyDayEqualWithFirstDayOfActivateWeek(String date) throws Exception;

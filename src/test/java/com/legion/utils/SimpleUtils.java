@@ -85,12 +85,13 @@ public class SimpleUtils {
 			MyThreadLocal.setTestResultFlag(false);
 			TestRailOperation.addTestResultIntoTestRailN(5, message);
 		}
+		String styledMessage = "<div class=\"row\" style=\"background-color:#dd4444; color:white; padding: 7px 5px;\">" + message + "</div>";
 		if (continueExecution) {
 			try {
 				assertTrue(false);
 			} catch (Throwable e) {
 				addVerificationFailure(e);
-				ExtentTestManager.getTest().log(Status.ERROR, message);
+				ExtentTestManager.getTest().log(Status.ERROR, styledMessage);
 			}
 		} else {
 			ExtentTestManager.getTest().log(Status.FAIL, message);
@@ -163,14 +164,16 @@ public class SimpleUtils {
 	}
 
 	public static void assertOnFail(String message, boolean isAssert, Boolean isExecutionContinue) {
+		String styledMessage = "<div class=\"row\" style=\"background-color:#dd4444; color:white; padding: 7px 5px;\">" + message + "</div>";
 		if (isExecutionContinue) {
 			try {
 				assertTrue(isAssert);
 				MyThreadLocal.setTestResultFlag(true);
 			} catch (Throwable e) {
 				addVerificationFailure(e);
-				ExtentTestManager.getTest().log(Status.ERROR, "<div class=\"row\" style=\"background-color:#FDB45C; color:white; padding: 7px 5px;\">" + message
-						+ "</div>");
+//				ExtentTestManager.getTest().log(Status.ERROR, "<div class=\"row\" style=\"background-color:#FDB45C; color:white; padding: 7px 5px;\">" + message
+//						+ "</div>");
+				ExtentTestManager.getTest().log(Status.ERROR,styledMessage);
 				if(TestBase.testRailReportingFlag!=null&&MyThreadLocal.getTestCaseExistsFlag()){
 					MyThreadLocal.setTestResultFlag(false);
 					TestRailOperation.addTestResultIntoTestRailN(5, message);

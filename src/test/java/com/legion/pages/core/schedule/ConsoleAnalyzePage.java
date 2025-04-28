@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Clock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -104,32 +105,86 @@ public class ConsoleAnalyzePage extends BasePage implements AnalyzePage {
     private WebElement scheduleHistoryTab;
     @FindBy(css="div[ng-click=\"selectedTab = 'labor'\"]")
     private WebElement laborGuidanceTab;
+    @FindBy(xpath="//tr[@class='ng-scope sch-schedule-analyze__versions-selected']")
+    private WebElement version1;
+    @FindBy(xpath="//tr[@class='ng-scope']")
+    private WebElement version0;
+    @FindBy(xpath="//lg-close[@id='legion_cons_Schedule_Schedule_Analyze_Close_button']")
+    private WebElement closeSchHistory;
+
     @Override
     public void clickOnAnalyzeBtn(String tab) throws Exception {
-        if (isElementLoaded(analyzeBtn,15)){
+        if (isElementLoaded(analyzeBtn, 15)) {
             click(analyzeBtn);
             SimpleUtils.pass("Clicked analyze button!");
-            if (tab.toLowerCase().contains("history")){
-                if (isElementLoaded(scheduleHistoryTab,15)){
+            if (tab.toLowerCase().contains("history")) {
+                if (isElementLoaded(scheduleHistoryTab, 15)) {
                     click(scheduleHistoryTab);
                     SimpleUtils.pass("Clicked schedule HistoryTab!");
+                    // === Version 0 Check ===
+                    if (isElementLoaded(version0, 10)) {
+                        String version0Text = version0.getText();
+                        if (version0Text.contains("0.0") && version0Text.toLowerCase().contains("impersonating")) {
+                            SimpleUtils.pass("Version 0.0 shows impersonator details :- " + version0Text);
+                        } else {
+                            SimpleUtils.fail("Version 0.0 does not show impersonator details.", true);
+                        }
+                    } else {
+                        SimpleUtils.fail("Version 0 element not loaded.", false);
+                    }
+
+                    // === Version 1 Check ===
+                    if (isElementLoaded(version1, 10)) {
+                        String version1Text = version1.getText();
+                        if (version1Text.contains("1.0") && version1Text.toLowerCase().contains("impersonating")) {
+                            SimpleUtils.pass("Version 1.0 shows impersonator details."+version1Text);
+                        } else {
+                            SimpleUtils.fail("Version 1.0 does not show impersonator details :- ", true);
+                        }
+                    } else {
+                        SimpleUtils.fail("Version 1 element not loaded.", true);
+                    }
+
                 } else {
-                    SimpleUtils.fail("There is no schedule History Tab!", false);
+                    SimpleUtils.fail("There is no schedule History Tab!", true);
                 }
-            } else if (tab.toLowerCase().contains("labor")){
-                if (isElementLoaded(laborGuidanceTab,15)){
-                    click(laborGuidanceTab);
-                    SimpleUtils.pass("Clicked labor guidance Tab!");
-                } else {
-                    SimpleUtils.fail("There is no labor guidance Tab!", false);
-                }
-            } else {
-                SimpleUtils.fail("No this tab:"+ tab, false);
             }
-        } else {
-            SimpleUtils.fail("There is no Analyze button!", false);
+            waitForSeconds(10);
+             click(closeSchHistory);
         }
     }
+
+
+
+//    @Override
+//    public void clickOnAnalyzeBtn(String tab) throws Exception {
+//        if (isElementLoaded(analyzeBtn,15)){
+//            click(analyzeBtn);
+//            SimpleUtils.pass("Clicked analyze button!");
+//            if (tab.toLowerCase().contains("history")){
+//                if (isElementLoaded(scheduleHistoryTab,15)){
+//                    click(scheduleHistoryTab);
+//                    SimpleUtils.pass("Clicked schedule HistoryTab!");
+//                } else {
+//                    SimpleUtils.fail("There is no schedule History Tab!", false);
+//                }
+//webelement version0 - please check if shows 0.0 as version and included text "impersonating" then passed as Vesion 0.0 shows impersonator details
+//                webelement version1 - please check if shows 1.0 as version and included text "impersonating" then passed as Vesion 1.0 shows impersonator details
+//
+////            } else if (tab.toLowerCase().contains("labor")){
+////                if (isElementLoaded(laborGuidanceTab,15)){
+////                    click(laborGuidanceTab);
+////                    SimpleUtils.pass("Clicked labor guidance Tab!");
+////                } else {
+////                    SimpleUtils.fail("There is no labor guidance Tab!", false);
+////                }
+//            } else {
+//                SimpleUtils.fail("No this tab:"+ tab, false);
+//            }
+//        } else {
+//            SimpleUtils.fail("There is no Analyze button!", false);
+//        }
+//    }
 
 
 

@@ -129,7 +129,15 @@ public class OpsPortalLocationsPage extends BasePage implements LocationsPage {
 			SimpleUtils.fail("The Long range labor budget configuration section not loaded!", false);
 		scrollToTop();
 	}
-
+	@Override
+	public void NavigateToControlCenter() throws Exception {
+		waitForSeconds(3);
+		if (isElementEnabled(modeSwitchIcon, 40)) {
+			clickTheElement(modeSwitchIcon);
+			waitForSeconds(5);
+		} else
+			SimpleUtils.fail("mode switch img load failed", false);
+	}
 
 	@Override
 	public void clickModelSwitchIconInDashboardPage(String value) throws Exception {
@@ -152,6 +160,7 @@ public class OpsPortalLocationsPage extends BasePage implements LocationsPage {
 			switchToNewWindow();
 			LoginPage loginPage = new ConsoleLoginPage();
 			loginPage.verifyNewTermsOfServicePopUp();
+			waitForSeconds(20);
 		} else
 			SimpleUtils.fail("mode switch img load failed", false);
 

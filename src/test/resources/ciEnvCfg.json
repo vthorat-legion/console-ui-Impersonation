@@ -2,9 +2,10 @@
   "CHROME_DRIVER_PATH": "src/test/resources/Driver/chromedriver.exe",
   "FIREFOX_DRIVER_PATH": "/usr/local/bin/geckodriver",
   "DEVURL": "https://mobilestage.legion.work/",
-  "QAURL": "https://rc-enterprise.dev.legion.work/",
+  "QAURL": "https://staging-enterprise.dev.legion.work/",
   "Screenshot_Path": "/var/lib/jenkins/workspace/createRemoteSeleniumGridForHydsoft/chinaQA",
   "ENTERPRISE" : "LegionCoffee2",
+  "Forac_Enterprise": "forac",
   "Coffee_Enterprise" : "LegionCoffee",
   "LegionTech_Enterprise" : "LegionTech",
   "Coffee2_Enterprise" : "LegionCoffee2",
@@ -38,6 +39,6 @@
   "isParallelBrowser" : "false",
   "Download_File_Default_Dir" : "/var/lib/jenkins/workspace/createRemoteSeleniumGridForHydsoft/chinaQA",
   "isHeadlessBrowser" : "false",
-  "isGridEnabled" : "true",
+  "isGridEnabled" : "false",
   "URL" : "http://{0}:{1}/wd/hub"
 }
