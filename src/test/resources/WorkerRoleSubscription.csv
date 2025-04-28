@@ -1,0 +1,3 @@
+LocationName,LocationId,Type,ConfigType,City,State,Country,New Work Role
+AutoUsingByFiona1,AutoUsingByFiona1,Location,Default,AutoUsingByFiona1,GA,US,1
+FionaUsingLocation,AutoUsingByFiona,Location,Default,AutoUsingByFiona,CO,US,1

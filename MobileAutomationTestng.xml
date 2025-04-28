@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="MobileTestAutomation">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="No"/>
+    <parameter name="platform" value="android"/>
+    <parameter name="runMode" value="mobile"/>
+    <parameter name="executionon" value="realdevice"/>
+    <parameter name="testRailRunName" value="Mobile Automation"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+
+    <test name="Mobile Automation Test">
+        <classes>
+            <class name="com.legion.test.core.mobile.LoginTest">
+                <methods>
+                <include name="gotoMobileLoginPage"/>
+                <include name="gotoCreateProfileOnboardingPage"/>
+
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite> <!-- Suite -->

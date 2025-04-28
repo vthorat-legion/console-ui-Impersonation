@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="No"/>
+    <parameter name="testRailRunName" value="LocationGroup Regression OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is OP tests===================================================-->
+
+    <test name="LocationGroup Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest">
+                <methods>
+                    <include name="verifyMSLocationGroupFunctionForRegularAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeMSToP2PAsInternalAdminForLocationGroup" />
+                    <include name="verifyP2PLocationGroupFunctionForRegularAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeP2PToMSAsInternalAdminForLocationGroup" />
+                    <include name="verifyCreateMSLocationGroupWithNSOTypeFunctionAsInternalAdminForLocationGroup" />
+                    <include name="verifyCreateP2PLocationGroupWithNsoTypeFunctionAsInternalAdminForLocationGroup" />
+                    <include name="verifyNoLocationGroupSettingForMockAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeNoneLocationToChildAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeNoneLocationToP2PParentAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeNoneLocationToMSParentAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeMSLocationsToNoneFunctionAsInternalAdminForLocationGroup" />
+                    <include name="verifyChangeP2PLocationsToNoneFunctionAsInternalAdminForLocationGroup" />
+
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+</suite> <!-- Suite -->

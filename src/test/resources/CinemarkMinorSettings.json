@@ -1,0 +1,10 @@
+{
+  "School Week": "4,15",
+  "Non-School Week": "5,16",
+  "Summer Week": "6,17",
+  "School today, school tomorrow": "8:00 AM,4:00 PM,6",
+  "School today, no school tomorrow": "8:30 AM,5:00 PM,5",
+  "No school today, no school tomorrow": "9:00 AM,6:00 PM,7",
+  "No school today, school tomorrow": "9:30 AM,9:00 PM,9",
+  "Summer day": "10:00 AM,10:00 PM,10"
+}

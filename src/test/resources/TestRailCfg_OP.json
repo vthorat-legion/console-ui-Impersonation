@@ -1,0 +1,7 @@
+{
+  "TEST_RAIL_URL": "https://legiontech.testrail.io/",
+  "TEST_RAIL_USER": "estelle@legion.co",
+  "TEST_RAIL_PASSWORD": "2wsx#EDC",
+  "TEST_RAIL_PROJECT_ID" : "11",
+  "TEST_RAIL_SUITE_ID" : "358"
+}

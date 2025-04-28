@@ -1,0 +1,8 @@
+{
+  "Non-SSO_Upperfields": "Region1 > Demo District",
+  "SSO_Upperfields": "D004",
+  "OPEnabled_Upperfields": "Business Unit 1 > Region 2 > Cinemark",
+  "Non-SSO_Location": "Test_For_Onboarding",
+  "SSO_Location": "Test_For_SSO_Onboarding",
+  "Password" : "legionco1"
+}

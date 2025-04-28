@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Onboarding Test"/>
+
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <test name="Onboarding Test">
+        <classes>
+            <class name="com.legion.tests.core.OnboardingTest">
+                <methods>
+                    <include name="verifyTheOnboardingFlowForRehireAndStatusChangeToOnboardedAsInternalAdmin" />
+                    <include name="verifyTheOnboardingFlowForRehireAndStatusChangeToActiveAsInternalAdmin" />
+                    <include name="verifyTheOnboardingFlowForReHireOnOPEnabledEnvAsInternalAdmin" />
+                    <include name="verifyTMOnboardingWithWFSGEnabledAndToggleOnAsInternalAdmin" />
+                    <include name="verifyTMOnboardingWithWFSGEnabledAndToggleOffAsInternalAdmin" />
+                    <include name="verifyTMOnboardingWithWFSGDisabledAsInternalAdmin" />
+                    <include name="verifyTMOnboardingWorkLocationsStepsOnOPSiteAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> 

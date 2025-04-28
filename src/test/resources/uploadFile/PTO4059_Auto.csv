@@ -1,0 +1,11 @@
+ExternalId,EmployeeId,StartTime,EndTime,StartDateAllDay,EndDateAllDay,Comment,Status,PTOType,TimeStamp
+externalPTO84175,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-09T09:00:00Z,2022-07-09T11:30:00Z,1,0,past day/ approved/partial day  -2.5hrs  don't deducte,Approved,Annual Leave2,2022-07-13T00:00:00Z
+externalPTO56347,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-10T09:00:00Z,2022-07-11T18:30:00Z,1,1,past 2 days/ approved/all day   don't deducte,Approved,Annual Leave2,2022-07-13T00:00:00Z
+externalPTO39147,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-13T09:00:00Z,2022-07-13T18:00:00Z,1,1,the current day/approved/all day  don't deducte,Approved,Bereavement3,2022-07-13T00:00:00Z
+externalPTO19034,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-14T09:00:00Z,2022-07-14T18:00:00Z,1,1,future days/1day/approved   deduct from the balance -1day,Approved,Covid2,2022-07-13T00:00:00Z
+externalPTO71342,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-15T09:00:00Z,2022-07-16T18:00:00Z,1,1,future days/more days/approved / deduct from the balance  -2days,Approved,Covid3,2022-07-13T00:00:00Z
+externalPTO8486,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-18T09:00:00Z,2022-07-18T12:00:00Z,0,0,future days/approved   partial day  -3hrs  need to deducte,Approved,Covid2,2022-07-13T00:00:00Z
+externalPTO62779,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-21T09:00:00Z,2022-07-21T18:00:00Z,1,1,future days/Pending   don't deducte,Pending,Grandparents Day Off2,2022-07-13T00:00:00Z
+externalPTO52027,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-22T10:00:00Z,2022-07-22T15:00:00Z,0,0,future days/Cancel   5 hrs don't deducte,Cancelled,Grandparents Day Off2,2022-07-13T00:00:00Z
+externalPTO50163,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-23T09:00:00Z,2022-07-23T18:00:00Z,1,1,future days/Decline   don't deducte,Declined,Grandparents Day Off2,2022-07-13T00:00:00Z
+externalPTO94545,c0f4b6fa-3e94-485c-833e-9175f0eab591,2022-07-12T09:00:00Z,2022-07-14T18:00:00Z,1,1,ask for 3 days 1 past day /1current day/ 1 future day; approved/ only future day need to be deducted.  -1day,Approved,Grandparents Day Off3,2022-07-13T00:00:00Z

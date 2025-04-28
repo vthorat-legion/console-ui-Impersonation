@@ -1,0 +1,2 @@
+DisplayName,Name,LocationId,Type,ConfigType,AddressLine1,AddressLine2,City,State/Province,Country,ZipCode,TimeZone,PrimaryContact,PhoneNumber,Email,Parent,ImageUrl,Website,EffectiveDate,SourceLocationId,LocationGroupType,Status,LaunchDate,EndComparableStoreDate,ComparableLocation,ReadyForForecast
+TestImportUpdateExisting,TestImportUpdateExisting,TestImportUpdateExisting,Location,QA,Address xian,,city,SK,CA,930221,America/New_York,,,,District-ForAutomation,https://res.cloudinary.com/legiontech/image/upload/v1582849665/wwzpzqcyomlbyyavmwyo.jpg,,9/13/2022,,,ENABLED,,,,TRUE

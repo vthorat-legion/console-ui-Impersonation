@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Location Regression OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is OP tests===================================================-->
+
+    <test name="Location Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest">
+                <methods>
+                    <include name="verifyAbnormalCasesOfOrganizationHierarchyAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyAddEditRemoveOrganizationHierarchyAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyAddUpperFieldsWithDiffLevelAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyCancelCreatingUpperfieldFunctionAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyCancelToExportOrImportLocations" />
+                    <include name="verifyCreateMockLocationAndNavigate" />
+                    <include name="verifyCreateNSOLocationAndNavigate" />
+                    <include name="verifyCreateRegularLocationWithAllFieldsAndNavigate" />
+                    <include name="verifyDefaultOrganizationHierarchyShowAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyDefaultValueOfExternalAttributesInLocationLevel" />
+                    <include name="verifyDisableEnableLocationFunction" />
+                    <include name="verifyDisableEnableUpperFieldFunctionAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyExportLocationDistrict" />
+                    <include name="verifyExternalAttributeE2E" />
+                    <include name="verifyGlobalDynamicGroupAbnormalScenarios" />
+                    <include name="verifyGlobalDynamicGroupFunctionInLocationsTab" />
+                    <include name="verifyGlobalDynamicGroupInClockInFunction" />
+                    <include name="verifyGlobalDynamicGroupInWFS" />
+                    <include name="verifyLocationLevelExternalAttributesDescription" />
+                    <include name="verifyNSOLocationEnhancementsCheck" />
+                    <include name="verifyOverriddenAssignmentRulesInLocationLevel" />
+                    <include name="verifyOverriddenLaborModelInLocationLevel" />
+                    <include name="verifyOverriddenOperatingHoursInLocationLevel" />
+                    <include name="verifyOverriddenSchedulingRulesInLocationLevel" />
+                    <include name="verifyParentFormulaInWFS" />
+                    <include name="verifyUpdateExternalAttributesInLocationLevel" />
+                    <include name="verifyUpdateUpperFieldFunctionAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyUpperFieldSmartCardDataAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyUpperFieldsListPageAndSearchFunctionAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyUserCanSeeEachTypeOfTemViaClickingTemName" />
+                    <include name="verifyViewFunctionOfSchedulingPolicyScheduleCollaborationTAComplianceInLocationLevel" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+</suite> <!-- Suite -->

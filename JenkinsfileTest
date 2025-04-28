@@ -1,0 +1,18 @@
+pipeline {
+   agent any
+   stages{
+    stage('Checkout') {
+       steps{
+        checkout scm
+       }
+    }
+    stage('Run Tests') {
+         steps{
+         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+            sh 'mvn clean test -Dsurefire.suiteXmlFiles=$xmlFileName -Denv=$env -Denterprise=$enterprise -DtestRail=$testRail -DseleniumGridPort=$seleniumGridPort -DdomainName=$domainName -Dmodule=$module'
+         }
+     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'test-output', reportFiles: 'htmlReporter.html', reportName: 'Automation_Report', reportTitles: 'Automation Result'])
+             }
+    }
+}
+}

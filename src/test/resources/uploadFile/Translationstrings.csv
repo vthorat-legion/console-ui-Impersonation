@@ -1,0 +1,100 @@
+﻿locale,category,resourceKey,translation
+cn,DayPart,Breakfast,早餐
+cn,DayPart,Lunch,午餐
+cn,DayPart,Morning,早上好
+cn,DayPart,morning,早上好
+cn,ScheduleChangeReason,Manager Initiated,Manager Initiated-cn
+cn,ScheduleChangeReason,Employee Initiated,Manager Initiated-cn
+cn,ScheduleChangeReason,Manager Initiate,Manager Initiated-cn
+cn,ScheduleChangeReason,Employee Initiate,Manager Initiated-cn
+cn,ScheduleChangeReason,Manager Initiates,Manager Initiated-cn
+cn,ScheduleChangeReason,Employee Initiates,Manager Initiated-cn
+cn,AccessRole,fiona dm,菲奥娜
+cn,Holiday,EASTER,复活节
+cn,Holiday,easter,复活节
+cn,Holiday,Easter,龙节
+cn,AccessRole,Admin,管理员
+cn,ScheduleChangeReason,Schedule Change Reason #4,计划改变原因4
+cn,DayPart,Dinner,晚餐
+cn,WorkRole,District Manager,区域经理
+cn,AccessRole,View Location Settings,查看地域设置
+cn,AccessRole,Team Member,团队成员
+cn,DayPart,break,稍微休息
+cn,DayPart,tea,喝茶
+en,DayPart,morning,morning
+en,DayPart,evening,evening
+en,Holiday,noon,noon
+en,DayPart,Breakfast,Breakfast
+en,DayPart,Lunch,Lunch
+en,DayPart,Morning,Morning
+fr,ScheduleChangeReason,Manager Initiated,Manager Initiated-frnew
+fr,ScheduleChangeReason,Employee Initiated,Manager Initiated-fr
+fr,ScheduleChangeReason,Schedule Change Reason #1,Schedule Change Reason #1-fr
+fr,AccessRole,View Location Settings,View Location Settings-fr
+fr,AccessRole,Manage Compliance Settings,Manage Compliance Settings-fr
+fr,AccessRole,Manage Other Pay Settings,Manage Other Pay Settings-fr
+fr,AccessRole,View All Posts And Messages,View All Posts And Messages-fr
+fr,AccessRole,Delete Others' Newsfeed Posts,Delete Others' Newsfeed Posts-fr
+fr,AccessRole,fionaNewAdmin,fionaNewAdmin-fr
+fr,AccessRole,fiona dm,fiona dm-fr
+fr,DayPart,Breakfast,Breakfast-fr
+fr,DayPart,Lunch,Lunch-fr1
+fr,DayPart,Morning,Morning-fr
+fr,Holiday,EASTER,PÂQUES
+fr,Holiday,easter,PÂQUES
+fr,Holiday,Easter,PÂQUES
+fr,Holiday,Labor Day,Labor Day-fr
+fr,Holiday,CustomerHoliday1,CustomerHoliday1-fr
+fr,DayPart,Dinner,Dinner-frr
+fr,WorkRole,District Manager,District Manager-fr
+fr,WorkRole,Key Manager,Key Manager-fr
+fr,DayPart,noon,noon-frnew
+fr,DayPart,forecast,forecast-fr
+fr,WorkRole,MOD,MOD-fr
+fr,Badge,badgeA,badgeA-fr
+fr,WorkRole,Te1,Te1-fr24556
+fr,DayPart,!@^,comma_fr2
+fr,DayPart,!,@^
+fr,WorkRole,te1,Te1-fr3
+fr,DayPart,tea,tea_fr
+fr,Holiday,Thanksgiving Day,Thanksgiving Day-fr
+fr,Holiday,CustomerHoliday2,CustomerHoliday2-fr
+fr,Holiday,Custom Holiday 1,Custom Holiday 1 fr
+fr,Holiday,Independence Day,Independence Day fr
+jp,ScheduleChangeReason,Manager Initiated,Manager Initiated-jp
+jp,ScheduleChangeReason,Employee Initiated,Manager Initiated-jp
+jp,Holiday,EASTER,イースター
+jp,Holiday,easter,イースター
+jp,Holiday,Easter,イースター
+jp,Holiday,Thanksgiving Day,Thanksgiving Day-jp
+jp,Holiday,CustomerHoliday2,CustomerHoliday2-jp
+jp,Holiday,Custom Holiday 1,Custom Holiday 1 jp
+jp,Holiday,Independence Day,Independence Day jp
+sv,ScheduleChangeReason,Manager Initiated,Manager Initiated-sv
+sv,ScheduleChangeReason,Employee Initiated,Employee Initiated-sv
+fr,Holiday,New Years Eve,New Years Eve-fr
+fr,Holiday,Christmas Eve,Christmas Eve-fr
+jp,Holiday,New Years Eve,New Years Eve-jp
+jp,Holiday,Christmas Eve,Christmas Eve-jp
+fr,Holiday,custom 0316,custom 0316-fr
+jp,Holiday,custom 0316,custom 0316-jp
+fr,Holiday,Veterans Day,Veterans Day-fr
+jp,Holiday,Veterans Day,Veterans Day-jp
+fr,Holiday,Columbus Day,Columbus Day-fr
+jp,Holiday,Columbus Day,Columbus Day-jp
+fr,Holiday,Memorial Day,Memorial Day-fr
+jp,Holiday,Memorial Day,Memorial Day-jp
+fr,Holiday,custom 0507,custom 0507-fr
+jp,Holiday,custom 0507,custom 0507-jp
+fr,Holiday,Black Friday,Black Friday-fr
+jp,Holiday,Black Friday,Black Friday-jp
+fr,Holiday,Custom 1004,Custom 1004-fr
+jp,Holiday,Custom 1004,Custom 1004-jp
+fr,Holiday,President’s Day,President’s Day-fr
+jp,Holiday,President’s Day,President’s Day-jp
+fr,Holiday,custom 0322,custom 0322-fr
+jp,Holiday,custom 0322,custom 0322-jp
+jp,Holiday,Labor Day,Labor Day-jp
+jp,Holiday,custom 032201,custom 032201-jp
+jp,Holiday, oooo, oooo-jp
+fr,Holiday, oooo, oooo-fr

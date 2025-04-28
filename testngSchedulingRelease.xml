@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="4" name="LegionTestForRelease" parallel="tests">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Automation Regression For Release"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <test name="Activity Test">
+        <classes>
+            <class name="com.legion.tests.core.ActivityTest">
+                <methods>
+                    <include name="verifyAccessControlsOnActivitiesPageAsInternalAdmin"/>
+                    <include name="verifyTheContentOnActivityAsStoreManager"/>
+                    <include name="verifyTheContentOfShiftSwapActivityAsStoreManager"/>
+                    <include name="verifyTheContentOfActivityPageAsStoreManager" />
+                    <include name="verifyToCloseActivityFeedAsStoreManager" />
+                    <include name="verifyNavigationOfEachTabOnActivityAsStoreManager" />
+<!--                    <include name="verifyTheNotificationOfWorkPreferencesAsTeamMember" />-->
+<!--                    <include name="verifyActivityOfPublishUpdateScheduleAsInternalAdmin" />-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Drag And Drop Test">
+        <classes>
+            <class name="com.legion.tests.core.DragAndDropTest">
+                <methods>
+               <!--     <include name="verifyWarningModelForTimeOffAsInternalAdmin"/>   -->
+                    <include name="verifyWarningMessageWhenAssignTMToOpenShiftThatTMIsAlreadyAssignedToAsStoreManager" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Schedule New UI Test">
+        <classes>
+            <class name="com.legion.tests.core.ScheduleTestKendraScott2">
+                <methods>
+                    <include name="verifyComplianceSmartCardFunctionalityAsInternalAdmin" />
+                    <include name="verifyScheduleFunctionalityScheduleSmartCard"/>
+                    <include name="verifyScheduleFunctionalityWeekViewAsInternalAdmin"/>
+                    <include name="viewAndFilterScheduleWithGroupByJobTitleInDayViewAsInternalAdmin"/>
+                    <include name="viewAndFilterScheduleWithGroupByJobTitleFilterCombinationInWeekViewAsInternalAdmin"/>
+                    <include name="verificationOfToAndFroNavigationOfWeekPickerAsTeamMember" />
+                    <include name="verifyProfilePictureFunctionalityAsTeamMember" />
+                    <include name="verifyInfoIconFunctionalityAsTeamMember" />
+                    <include name="verifyOpenShiftScheduleSmartCardAsTeamMember" />
+                <!--    <include name="verifyNumberOnSmartCardForScheduleNotPublishAsInternalAdmin" />-->
+                    <include name="verifyOffersGeneratedForOpenShiftsAsInternalAdmin" />
+                    <include name="verifyContentAfterChangingOperatingHrsNextDayAsInternalAdmin" />
+                    <include name="verifySearchBarOnSchedulePageInDayViewAsInternalAdmin" />
+                    <include name="verifyGroupByDayPartsCanBeCollapsedNExpandedAsStoreManager" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Forecast Test">
+        <classes>
+            <class name="com.legion.tests.core.ForecastTest">
+                <methods>
+                    <include name="verifyScheduleLaborForeCastFunctionalityAsInternalAdmin"/>
+                    <include name="validateWeatherSmartCardOnForecastPageAsInternalAdmin"/>
+                    <include name="verifyScheduleFunctionalityForecastAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="TeamTab Test KendraScott2">
+        <classes>
+            <class name="com.legion.tests.core.TeamTestKendraScott2">
+                <methods>
+                    <include name="verifyTheTeamFunctionalityInWorkPreferencesAsStoreManager" />
+                    <include name="verifyTheTeamFunctionalityInRosterForSortAsInternalAdmin" />
+                    <include name="verifyRemoveAccessToEmployeeProfileInTeamScheduleAsInternalAdmin" />
+                    <include name="validateCancelledAvailabilityHasNoOptionRequestAsStoreManager" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Profile Test">
+        <classes>
+            <class name="com.legion.tests.core.ProfileNewUITestKendraScott2">
+                <methods>
+                    <include name="verifyWorkPreferenceDetailsByUpdatingTheInformationAsTeamMember" />
+                    <include name="verifyTheContentOfNewProfilePageAsInternalAdmin" />
+                    <include name="verifyTheContentOfNewProfilePageInTMViewAsTeamMember" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="LiquidDashboard Test">
+        <classes>
+            <class name="com.legion.tests.core.LiquidDashboardTest">
+                <methods>
+                    <include name="verifyCommonUIOfWidgetsAsStoreManager" />
+                    <include name="verifyNoContentInStartingSoonWidgetAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DM View Test">
+        <classes>
+            <class name="com.legion.tests.core.DMViewTest">
+                <methods>
+                    <include name="verifyComplianceFunctionalityForComplianceInDMViewAsInternalAdmin" />
+                    <include name="verifyLocationListAndSubLocationOnComplianceInDMViewAsInternalAdmin" />
+                    <include name="verifyScheduleStatusAndHoursOnScheduleDMViewOnNonTAEnvAsInternalAdmin" />
+                    <include name="verifyScheduleStatusAndHoursOnScheduleDMViewOnTADGEnvAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite verbose="10" name="Legion Test" parallel="classes" thread-count="10">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Scheduling - Total Debug"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <test name="Legion Test">
+        <classes>
+            <class name="com.legion.tests.core.PrepareSettingsTest" />
+            <class name="com.legion.tests.core.ActivityTest" />
+            <class name="com.legion.tests.core.ScheduleTestKendraScott2" />
+            <class name="com.legion.tests.core.ScheduleCopyImprovementTest" />
+            <class name="com.legion.tests.core.DashboardTestKendraScott2" />
+            <class name="com.legion.tests.core.TeamTestKendraScott2" />
+            <class name="com.legion.tests.core.ScheduleOverviewTest" />
+            <class name="com.legion.tests.core.ScheduleTest" />
+            <class name="com.legion.tests.core.ForecastTest" />
+            <class name="com.legion.tests.core.ProfileNewUITestKendraScott2" />
+            <class name="com.legion.tests.core.LiquidDashboardTest" />
+            <class name="com.legion.tests.core.InboxTest" />
+            <class name="com.legion.tests.core.DMViewTest" />
+            <class name="com.legion.tests.core.SchedulingMinorTest" />
+            <class name="com.legion.tests.core.DragAndDropTest" />
+            <class name="com.legion.tests.core.OfferTMTest" />
+            <class name="com.legion.tests.core.LocationNavigationTest" />
+            <class name="com.legion.tests.core.UpperfieldTest" />
+            <class name="com.legion.tests.core.SplitAndSpreadTest" />
+            <class name="com.legion.tests.core.MealAndRestBreakTest" />
+            <class name="com.legion.tests.core.CopyScheduleWithoutAssignmentsTest" />
+            <class name="com.legion.tests.core.ControlsNewUITest" />
+            <class name="com.legion.tests.core.ApproveActivitiesByHomeOrNonHomeManagerTest" />
+            <class name="com.legion.tests.core.AvailabilityApprovalRequiredTest" />
+            <class name="com.legion.tests.core.SeventhConsecutiveDayTest" />
+            <class name="com.legion.tests.core.ScheduleCoverageTest" />
+            <class name="com.legion.tests.core.BulkDeleteNEditTest" />
+            <class name="com.legion.tests.core.OvertimeShiftOfferTest" />
+            <class name="com.legion.tests.core.FTSERelevantTest" />
+            <class name="com.legion.tests.core.DeleteScheduleTest" />
+        </classes>
+    </test>
+</suite>

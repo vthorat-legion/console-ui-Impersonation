@@ -1,0 +1,18 @@
+{
+  "SEARCH_LOCATION_TEXT" : "au",
+  "ALL_LOCATIONS" : "All Locations",
+  "Schedule_Publish_Window" : "3",
+  "Schedule_Planning_Window" : "8",
+  "Schedule_Publish_Window_Question" : "How many weeks in advance would you typically publish schedules? (this is the Schedule Publish Window).",
+  "Schedule_Planning_Window_Question" : "How many weeks in advance can a schedule be created? (this is the Schedule Planning Window).",
+  "Budget_Score": "20",
+  "Coverage_Scores_Regular_Hours": "20",
+  "Coverage_Scores_Peak_Hours": "20",
+  "Employee_Match_Score": "20",
+  "Compliance_Score": "20",
+  "How_to_measure_coverage_relative_to_guidance_budget": "Average",
+  "single_workweek_overtime" : "40",
+  "single_workday_overtime" : "10",
+  "Additional_Schedule_Hours_Before": "2",
+  "Additional_Schedule_Hours_After" : "3"
+}

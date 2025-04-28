@@ -1,0 +1,14 @@
+[	
+	{
+		"Day" : "MONDAY",
+		"Opening_Hours" : "11:00 am",
+		"Closing_Hours" : "9:00 pm",
+		"isStoreClosed" : "false"
+	} ,
+	{
+		"Day" : "TUESDAY",
+		"Opening_Hours" : "8:00 am",
+		"Closing_Hours" : "11:00 pm",
+		"isStoreClosed" : "false"
+	}
+]

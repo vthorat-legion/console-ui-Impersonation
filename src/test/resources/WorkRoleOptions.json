@@ -1,0 +1,16 @@
+{
+	  "WorkRole" : "MANAGER",
+	  "WorkRole_BARISTA" : "BARISTA",
+	  "changeWorkRole" : "Manager",
+	  "MOD": "MOD",
+	  "EVENT_MANAGER": "EVENT MANAGER",
+	  "Lead_Sales_Associate": "LEAD SALES ASSOCIATE",
+	  "cinemark-wkdy": "GENERAL MANAGER",
+	  "Circlek": "CSR",
+	  "RETAIL_BOOTFITTER" : "Retail Bootfitter",
+	  "RETAIL_ASSOCIATE" : "Retail Associate",
+	  "AMBASSADOR": "AMBASSADOR",
+	  "MGR ON DUTY": "MGR ON DUTY",
+	  "TEAM_MEMBER_CORPORATE_THEATRE": "Team Member Corporate-Theatre",
+	  "RETAIL_RENTAL_MGMT": "RETAIL RENTAL MGMT"
+}

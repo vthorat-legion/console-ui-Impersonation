@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Configuration Regression OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is OP tests===================================================-->
+
+
+    <test name="Configuration Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.ConfigurationTest">
+                <methods>
+                    <include name="verifyDynamicGroupFunctionAsAInternalAdminForAssociation"/>
+                    <include name="verifyUserCanOpenEachTypeTemplateAsInternalAdminForConfiguration"/>
+                    <include name="verifyNewAdvancedStaffingRulePageAsInternalAdminForConfiguration"/>
+                    <include name="verifyCheckBoxOfDaysOfWeekAsInternalAdminForConfiguration"/>
+                    <include name="verifyInputFormulaForDaysOfWeekAsInternalAdminForConfiguration"/>
+                    <include name="verifyTimeOfDayStartSectionAsInternalAdminForConfiguration"/>
+                    <include name="verifyTimeOfDayDuringSectionAsInternalAdminForConfiguration"/>
+                    <include name="verifyTimeOfDayEndSectionAsInternalAdminForConfiguration"/>
+                    <include name="verifyTimeOfDayFormulaSectionAsInternalAdminForConfiguration"/>
+                    <include name="verifyMealAndRestBreaksAsInternalAdminForConfiguration"/>
+                    <include name="verifyNumberOfShiftsAsInternalAdminForConfiguration"/>
+                    <include name="verifyBadgesOfAdvanceStaffingRulesAsInternalAdminForConfiguration"/>
+                    <include name="verifyCrossAndCheckMarkButtonOfAdvanceStaffingRulesAsInternalAdminForConfiguration"/>
+                    <include name="verifySaveAndCancelButtonOfAdvanceStaffingRulesAsInternalAdminForConfiguration"/>
+                    <include name="verifyAddEditDeleteFunctionOfAdvanceStaffingRulesAsInternalAdminForConfiguration"/>
+                    <include name="verifyCreateAllTypeTemplateAsInternalAdminForConfiguration"/>
+                    <include name="verifyAdvancedStaffingRulesShowWellAsInternalAdminForConfiguration"/>
+                    <include name="daysOfWeekE2EAsInternalAdminForConfiguration"/>
+                    <include name="numberOfShiftsInADVRuleE2EAsInternalAdminForConfiguration"/>
+                    <include name="timeOfDayInADVRuleE2EAsInternalAdminForConfiguration"/>
+                    <include name="mealAndRestBreakInADVRuleE2EAsInternalAdminForConfiguration"/>
+                    <include name="locationLevelAdvanceStaffingRuleAsInternalAdminForConfiguration"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

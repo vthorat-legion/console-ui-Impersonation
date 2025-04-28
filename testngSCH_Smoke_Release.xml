@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="6" name="LegionTest" parallel="tests" configfailurepolicy="continue">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="SCH Smoke Test Release"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <test name="Forecast Test">
+        <classes>
+            <class name="com.legion.tests.core.SchedulingOPEnabledTest">
+                <methods>
+                    <include name="verifyScheduleFunctionalityForecastAsStoreManager" />
+                    <include name="verifyScheduleLaborForeCastFunctionalityAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Schedule Overview Test">
+        <classes>
+            <class name="com.legion.tests.core.ScheduleOverviewTest">
+                <methods>
+                    <include name="verifyScheduleFunctionalityOverviewAsStoreManager" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Schedule Test">
+        <classes>
+            <class name="com.legion.tests.core.ScheduleTestKendraScott2">
+                <methods>
+                    <include name="validateSMCanViewScheduleInManagerAndEmployeeViewAfterGenerateScheduleAsInternalAdmin" />
+                    <include name="verifyShiftsDisplayNormallyInDayViewAsInternalAdmin" />
+                    <include name="validateTMCanViewTeamScheduleAfterGenerateScheduleAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Delete Schedule Test">
+        <classes>
+            <class name="com.legion.tests.core.DeleteScheduleTest">
+                <methods>
+                    <include name="verifyDeleteUnPublishedScheduleAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Bulk Delete And Edit Test">
+        <classes>
+            <class name="com.legion.tests.core.BulkDeleteNEditTest">
+                <methods>
+                    <include name="verifyDeleteMultipleShiftsInWeekViewAsInternalAdmin" />
+                    <include name="verifyChangingAssignmentOnMultipleEditShiftsWindowAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Bulk Create Test">
+        <classes>
+            <class name="com.legion.tests.core.BulkCreateTest">
+                <methods>
+                    <include name="validateTheAssignAndOfferWorkFlowAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Parent Child Test">
+        <classes>
+            <class name="com.legion.tests.core.ParentChildLGTest">
+                <methods>
+                    <include name="validateTheAssignTMsWorkFlowForNewCreateShiftUIOnParentChildLGAsInternalAdmin" />
+                    <include name="verifyChangingLocationForPCOnSingleEditShiftsWindowAsInternalAdmin" />
+                    <include name="verifyDragAndDropShiftToDifferentLocationForParentChildLGScheduleAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="P2P Test">
+        <classes>
+            <class name="com.legion.tests.core.P2PLGTest">
+                <methods>
+                    <include name="validateTheAssignTMsWorkFlowForNewCreateShiftUIOnP2PLGAsInternalAdmin" />
+                    <include name="verifyChangingLocationForP2POnSingleEditShiftsWindowAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Single Shift Edit Test">
+        <classes>
+            <class name="com.legion.tests.core.SingleShiftEditTest">
+                <methods>
+                    <include name="verifyTheContentOfBreaksSectionsAsInternalAdmin" />
+                    <include name="verifyChangingAssignmentOnSingleEditShiftsWindowAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DM View Test">
+        <classes>
+            <class name="com.legion.tests.core.DMViewTest">
+                <methods>
+                    <include name="verifyRefreshFeatureOnDashboardInDMViewAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

@@ -1,0 +1,41 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - checkout
+      - run:
+          name: docker build
+          command: |
+            docker build .
+  build_and_push_to_ecr:
+    machine:
+      image: circleci/classic:latest
+    steps:
+      - checkout
+      - run: aws configure set default.region $REGION
+      - run: eval $(aws ecr get-login --region $REGION --no-include-email | sed 's|https://||')
+      - run:
+          name: docker build
+          command: |
+            docker build -t $AWS_ECR_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/console-ui-selenium:$CIRCLE_SHA1 -t $AWS_ECR_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/console-ui-selenium:latest .
+      - run:
+          name: docker push
+          command: |
+            docker push $AWS_ECR_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/console-ui-selenium:$CIRCLE_SHA1
+            docker push $AWS_ECR_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/console-ui-selenium:latest
+workflows:
+  version: 2
+  docker_build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore:
+                - master
+      - build_and_push_to_ecr:
+          filters:
+            branches:
+              only:
+                - master

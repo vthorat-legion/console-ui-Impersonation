@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="5" name="LegionTest">
+	<parameter name="environment" value="QA"/>
+  	<parameter name="enterprise" value="LegionCoffee2"/>
+    <parameter name="browser" value="Chrome"/>
+    <listeners>
+ 		<listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+ 	</listeners>
+   
+  <test name="Dashboard Test">      
+    <classes>
+       <class name="com.legion.tests.core.DashboardTest">
+      	<methods>
+             <include name="navigateToDashboardFromGlobalSetting"/>    
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Navigation Flow">      
+    <classes>
+       <class name="com.legion.tests.core.NavigationTest">
+      	<methods>
+           <include name="DataNotLoadingForCarmelClubLocation"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Schedule Test">      
+    <classes>
+       <class name="com.legion.tests.core.ScheduleTest">
+      	<methods>
+             <include name="shouldRepublishButtonDisplyedForFinalizedWeek"/>  
+             <include name="onRefreshPublishButtonDisappears"/> 
+             <include name="scheduleWagesDoesNotGetUpdatedForAdminShift"/> 
+             <include name="shouldConvertToOpenShiftOption"/>
+             <include name="scheduleWagesDoesNotChangeForNewAddedShift"/> 
+             <include name="scheduleDeletionNotWorking"/>
+             <include name="projectedSalesAndStaffingGuidanceAreZeroOnGenerateSchedulePage"/>
+             <include name="budgetAndGuidanceHourNotEqual"/>
+             <include name="complianceReviewShiftsDisappear"/>
+             <include name="shouldBeAddShiftUsingAssignTeamMember"/>
+             <include name="scheduleShiftsNotAligned"/>
+             <include name="scheduledHrsNotChangingOnAllLocationFilter"/>
+             <include name="shouldBeAbleToEditOnStaffingGuidance"/>
+             <include name="shouldBeAbleToLoadScheduleDataOnDayView"/>
+             <include name="groupByLocationFilterShouldBeSelected"/>
+             <include name="groupByAllShouldNotBeBlank"/>
+             <include name="shouldBeNonZeroOtherHours"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Staffing Guidance test">      
+    <classes>
+       <class name="com.legion.tests.core.StaffingGuidanceTest">
+      	<methods>
+           <include name="weeklyGuidanceHoursShouldMatchTheSumOfEachDay"/>
+           <include name="weeklyGuidanceHoursShouldMatchTheSumOfWorkRolesEnabled"/>
+           <include name="staffingGuidanceShowsDiffGuidanceHour"/>
+           <include name="staffingGuidanceShouldNotBeBlankOnRefresh"/>
+           <include name="itemsOnstaffingGuidanceIsBlank"/>
+           <include name="analyzeShowsDifferentLocationInScheduleHistoryOfBayArea"/>
+           <include name="wagesAreZeroForGuidanceHourValue"/>
+           <include name="sumOfGuidanceHourNotEqualToTotalGuidanceHour"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+ 	
+  <test name="Sales Forecast">      
+    <classes>
+       <class name="com.legion.tests.core.SalesForecastTest">
+      	<methods>
+           <include name="shouldAllSalesItemDisplayEnabledFilter"/>
+           <include name="salesForecastGraphMissing"/>
+           <include name="salesForecastGraphNotChangingForAllLocationFilter"/>
+           <include name="smartCardActualsShowingAsNAForPastDate"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+  
+   <test name="StoreManager Schedule Navigation Test">      
+    <classes>
+       <class name="com.legion.tests.core.StoreManagerScheduleNavigationTest">
+      	<methods>
+           <include name="dayViewShouldBeSticky"/>
+           <include name="teamViewShouldBeSticky"/>
+           <include name="shouldNaviToNextWeekAndGenerateSchedule"/>
+           <include name="shouldBeNoGenerateButtonForPastWeek"/>
+           <include name="shouldBeAbleToViewAndFilterSchedule"/>
+           <include name="GroupByShouldBeStickyAtSessionLevel"/>
+           <include name="FilterShouldBeSticky"/>
+           <include name="DisplaySalesPerLaborHr"/>
+           <include name="editShiftManually"/>
+           <include name="editShiftManuallyLeadtoCorruption"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Team Test">      
+    <classes>
+       <class name="com.legion.tests.core.TeamTest">
+      	<methods>
+           <include name="coverageForTeamPageNotWorking"/>
+        </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+   
+</suite> <!-- Suite -->

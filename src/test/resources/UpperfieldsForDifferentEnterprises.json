@@ -1,0 +1,15 @@
+{
+  "Coffee_Enterprise" : "Business Unit 1 > Region 1 > Budget",
+  "Coffee_Enterprise2" : "Business Unit 1 > Region 2 > Bay Area District",
+  "Coffee_Enterprise3": "Business Unit 2 > Region4 > All Districts",
+  "KendraScott2_Enterprise" : "Region1 > Budget",
+  "KendraScott2_Enterprise2" : "Region1 > District Whistler",
+  "Op_Enterprise" : "BU1 > Region1 > ClearDistrict",
+  "DGStage_Enterprise" : "District 12",
+  "CinemarkWkdy_Enterprise" : "HQ > Business Unit 1 > Region 1 > Lone Star Region",
+  "CinemarkWkdy_Enterprise2" : "HQ > Business Unit 1 > Region 2 > Cinemark",
+  "CinemarkWkdy_Enterprise3" : "HQ > Business Unit 2 > Region 3 > East Bay Region",
+  "Vailqacn_Enterprise" : "HQ > Business Unit 1 > Region 1 > WB Retail Rental",
+  "Vailqacn_Enterprise2" : "HQ > Business Unit 1 > Region 2 > PARK - Skier Services",
+  "Vailqacn_Enterprise3" : "HQ > Business Unit 2 > Region 3 > PARK - Retail Rental"
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Labor Model Regression OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is Labor Model tests===================================================-->
+
+
+    <test name="Labor Model Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LaborModelTest">
+                <methods>
+                    <include name="verifyUserCanCreateDeleteAndPublishLaborModelTemplateAsInternalAdminForLaborModel"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

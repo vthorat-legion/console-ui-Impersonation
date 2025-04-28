@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Navigation Regression OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is OP tests===================================================-->
+
+    <test name="Navigation Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.NewNavigationFlowTest">
+                <methods>
+                    <!--                    <include name="verifyLocationProfilePageInControls" />-->
+                    <include name="verifyManagerLocationForOneUserInControlsInControlsInternalAdminForNewNavigationFlow" />
+                    <!--                    <include name="verifyDashboardViewAsInternalAdmin" />-->
+                    <!--                    <include name="verifyDashboardViewAsDistrictManager" />-->
+                    <include name="verifyDashboardViewAsStoreManager" />
+                    <include name="verifyGlobalSearchFunctionOnNavigatorAsInternalCustomerAdmin" />
+                    <!--                    <include name="verifyNavigationBarSearchDistrictFunctionInternalAdmin" />-->
+                    <!--                    <include name="verifyNavigationBarSearchLocationFunctionAsInternalAdmin" />-->
+                    <!--                    <include name="verifyNavigationBarWhenSwitchDifferentTabsAsInternalAdmin"/>-->
+                    <!--                    <include name="verifyNavigationBarRecentlyViewListAsInternalAdmin"/>-->
+                    <include name="verifyEachTabIfSelectHQAsInternalCustomerAdmin" />
+                    <include name="verifyNavigationFunctionByDifRoleAsInternalCustomerAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite> <!-- Suite -->

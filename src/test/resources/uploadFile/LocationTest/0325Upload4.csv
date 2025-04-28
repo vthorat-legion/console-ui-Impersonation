@@ -1,0 +1,2 @@
+DisplayName,Name,LocationId,Type,ConfigType,AddressLine1,AddressLine2,City,State/Province,Country,ZipCode,TimeZone,PrimaryContact,PhoneNumber,Email,Parent,ImageUrl,Website,EffectiveDate,SourceLocationId,LocationGroupType,Status,LaunchDate,EndComparableStoreDate,ComparableLocation,ReadyForForecast
+0325Upload4,0325Upload4,0325Upload4,Location,QA,automationtesting,,Alabama,AL,US,1234567890,Africa/Abidjan,1234567890,5557789923,estelle@legion.co,MS0316203253,,,08/01/2020,,,ENABLED,,,,FALSE

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite verbose="10" name="Legion Test" parallel="classes" thread-count="5" configfailurepolicy="continue">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="RC - Daily Automation OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <test name="Legion Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest"/>
+            <class name="com.legion.tests.core.OpsPortal.LocationsGroupTestInOP"/>
+            <class name="com.legion.tests.core.OpsPortal.JobTest"/>
+            <class name="com.legion.tests.core.OpsPortal.NewNavigationFlowTest"/>
+            <class name="com.legion.tests.core.OpsPortal.ConfigurationTest"/>
+            <class name="com.legion.tests.core.OpsPortal.BasicConfigurationTest"/>
+            <class name="com.legion.tests.core.OpsPortal.UserManagementTest"/>
+            <class name="com.legion.tests.core.opUserManagement.AccessRoleTest"/>
+            <class name="com.legion.tests.core.opEmployeeManagement.AbsentManagementTemplateTest"/>
+            <class name="com.legion.tests.core.opEmployeeManagement.NewAccrualEngineTest"/>
+            <class name="com.legion.tests.core.opEmployeeManagement.TimeOffRequestTest"/>
+            <class name="com.legion.tests.core.OpsPortal.LaborModelTest"/>
+            <class name="com.legion.tests.core.PlanTest"/>
+            <class name="com.legion.tests.core.OpsPortal.DemandDriverTest">
+                <methods>
+                    <include name="verifyCategoryConfigurationInSettingsForDemandDriverTemplateAsInternalAdmin"/>
+                    <include name="verifyChannelConfigurationInSettingsForDemandDriverTemplateAsInternalAdmin"/>
+                    <include name="verifyInputStreamsConfigurationInSettingsForDemandDriverTemplateAsInternalAdmin"/>
+                    <include name="verifyCreateDemandDriverTemplateAsInternalAdmin"/>
+                    <include name="verifyDemandDriverTemplateDetailsDuplicatedAddingCheckAsInternalAdmin"/>
+                    <include name="verifyDemandDriverTemplateDetailsAsInternalAdmin"/>
+                    <include name="verifyCreationForInputStreamInSettingsPageCAsInternalAdmin"/>
+                    <include name="verifyEditForInputStreamInSettingsPageAsInternalAdmin"/>
+                    <include name="verifyRemoveInputStreamAsInternalAdmin"/>
+                    <include name="verifyDemandDriverTemplatesAsDraftAsInternalAdmin"/>
+                    <include name="verifyDemandDriverTemplatesToArchiveAsInternalAdmin"/>
+                    <include name="verifyUIForInputStreamsInSettingsPageAsInternalAdmin"/>
+                    <include name="verifyDemandDriversTemplateLandingPageAsInternalAdmin"/>
+ <!--                    <include name="verifyTheDefaultInputStreamsWhenEnterANewEnterpriseAsInternalAdmin"/>
+                                       <include name="verifyTheDefaultDemandDriverTemplateWhenEnterANewEnterpriseAsInternalAdmin"/>
+                                       <include name="verifyInputStreamInDemandDriverTemplateAsInternalAdmin"/>
+                                       <include name="verifyVisibilityOnForecastPageForDefaultDemandDriverTemplateOnlyAsInternalAdmin"/>
+                                       <include name="verifyForRemoteDemandDriverUIAsInternalAdmin"/>
+                                       <include name="verifyForAggregatedDemandDriverUIAsInternalAdmin"/>
+                                       <include name="verifyCreationAndEditForRemoteDemandDriverAsInternalAdmin"/>
+                                       <include name="verifyCreationAndEditForDistributedDemandDriverAsInternalAdmin"/>
+                                       <include name="verifyCreationAndEditForAggregatedDemandDriverAsInternalAdmin"/>
+                                       <include name="verifyAggregatedDemandDriverInReadOnlyModeAsInternalAdmin"/>
+                                       <include name="verifyDistributedDemandDriverInReadOnlyModeAsInternalAdmin"/>
+                                       <include name="verifyRemoteDemandDriverInReadOnlyModeAsInternalAdmin"/>
+                                       <include name="verifyTimeConfigurationChangedToTextInputAsInternalAdmin"/>
+                                       <include name="verifyTimeValidationForOperatingHoursAsInternalAdmin"/>
+                                       <include name="verifyTimeValidationForSchedulingRulesAsInternalAdmin"/>
+                                       <include name="verifyDemandDriverIsNotAccessibleAsStoreManager"/>
+                                       <include name="verifyPredictabilityScoreIsOnlyForLegionMLForecastSourceAsInternalAdmin"/>
+                                       <include name="verifyPredictabilityScoreIsOnlyEnabledForEverPublishedTemplateAsInternalAdmin"/>
+                                       <include name="verifyEmptyChannelNameIsAllowedAsInternalAdmin"/>
+                                       <include name="verifyGranularityToInputStreamAsInternalAdmin"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

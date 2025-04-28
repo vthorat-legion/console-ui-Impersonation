@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="10" name="Legion Test">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Automation - Daily Routine"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is OP tests===================================================-->
+
+    <test name="Location Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest">
+                <methods>
+                    <include name="verifyLocationCommonFeatureAsInternalAdmin" />
+                </methods>
+            </class>
+            <class name="com.legion.tests.core.OpsPortal.LaborModelTest">
+                <methods>
+                    <include name="verifyImportLocationSubscriptionOfLaborModelTemplateAsInternalAdmin" />
+                    <include name="verifyLocationCommonFeatureAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+

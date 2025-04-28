@@ -1,0 +1,23 @@
+#Idea files
+*.iml
+.idea
+*~
+
+#Eclipse files
+.classpath
+.project
+**/.DS_Store
+**/.settings/
+
+#Ignore maven files
+target/
+node_modules/
+/bin/
+
+#Ignore test-framework files
+Screenshots/
+test-output/
+
+#JRebel files
+**/rebel.xml
+**/rebel-remote.xml

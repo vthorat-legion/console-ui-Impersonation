@@ -1,0 +1,20 @@
+{
+  "Location_Name": "AutoCreation",
+  "Location_Id": "456789",
+  "Time_Zone": "America/New_York (UTC-05:00)",
+  "Location_Address": "automationtesting",
+  "Country": "United States",
+  "City": "Alabama",
+  "State": "Alabama",
+  "Zip_Code": "03938",
+  "Primary_Contact": "1234567890",
+  "Phone_Number": "5557789923",
+  "Zip_Code": "1234567890",
+  "Email_Address": "estelle@legion.co",
+  "Configuration_Type": "QA",
+  "Effective_Date": "Jul 01, 2020",
+  "Location_Type_Mock" : "Mock",
+  "Location_Type_NSO" : "NSO",
+  "Parent location" : "Parent location",
+  "Part of a location group" : "Part of a location group"
+}

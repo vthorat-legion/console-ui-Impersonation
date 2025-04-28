@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="5" name="LegionTest" parallel="tests">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Ephemeral - Automation OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <!--======================================================Start - This is OP tests===================================================-->
+
+    <test name="Location Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest">
+                <methods>
+                    <include name="verifyCreateRegularLocationWithAllFieldsAndNavigateAsInternalAdmin" />
+                    <include name="verifyDisableEnableLocationFunctionAsInternalAdmin" />
+                    <include name="verifyExportLocationDistrictAsInternalAdmin" />
+                    <include name="verifyGlobalDynamicGroupFunctionInLocationsTabAsInternalAdmin" />
+                    <include name="verifyUserCanSeeEachTypeOfTemViaClickingTemNameAsInternalAdmin" />
+                    <include name="verifyOverriddenSchedulingRulesInLocationLevelAsInternalAdmin" />
+                    <include name="verifyOverriddenOperatingHoursInLocationLevelAsInternalAdmin" />
+                    <include name="verifyOverriddenAssignmentRulesInLocationLevelAsInternalAdmin" />
+                    <include name="verifyOverriddenLaborModelInLocationLevelAsInternalAdmin" />
+                    <include name="verifyTemplateLocalizationPermissionOfDM" />
+                    <include name="verifyDifferentLegionUserCanGenerateScheduleAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+        <test name="Navigation Test">
+            <classes>
+                <class name="com.legion.tests.core.OpsPortal.NewNavigationFlowTest">
+                    <methods>
+                        <include name="verifyLocationProfilePageInControlsAsInternalAdminForNewNavigationFlow" />
+                        <include name="verifyManagerLocationForOneUserInControlsInControlsInternalAdminForNewNavigationFlow" />
+                        <include name="verifyDashboardViewAsInternalAdmin" />
+                        <include name="verifyNavigationBarSearchDistrictFunctionInternalAdmin" />
+                        <include name="verifyNavigationBarSearchLocationFunctionAsInternalAdmin" />
+                        <include name="verifyNavigationBarWhenSwitchDifferentTabsAsInternalAdmin"/>
+                        <include name="verifyNavigationBarRecentlyViewListAsInternalAdmin"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+
+
+    <test name="Job Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.JobTest">
+                <methods>
+                    <include name="verifyCreateScheduleJobFunctionAsInternalAdmin" />
+                    <include name="verifyCreateReleaseScheduleJobFunctionAsInternalAdmin"/>
+                    <include name="verifyAdjustBudgetJobFunctionAsInternalAdmin"/>
+                    <include name="verifyAdjustForecastJobFunctionAsInternalAdmin" />
+                    <include name="verifyCopyStopResumeAndArchiveJobFunctionFunctionAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Configuration Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.ConfigurationTest">
+                <methods>
+                    <include name="verifyUserCanOpenEachTypeTemplateAsInternalAdmin"/>
+                    <include name="verifyCreateAllTypeTemplateAsInternalAdmin"/>
+                    <include name="verifyNewAdvancedStaffingRulePageAsInternalAdmin"/>
+                    <include name="verifyCheckBoxOfDaysOfWeekAsInternalAdmin"/>
+                    <include name="verifyAdvancedStaffingRulesShowWellAsInternalAdmin"/>
+                    <include name="basicStaffingRuleFieldsVerificationAsInternalAdmin"/>
+                    <include name="basicStaffingRuleCanShowWellInListAsInternalAdmin"/>
+                    <include name="basicStaffingRuleE2EAsInternalAdmin"/>
+                    <include name="verifyCreateDynamicGroupWithSpecifyCriteriaAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Labor Model Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LaborModelTest">
+                <methods>
+                    <include name="verifyUserCanCreateDeleteAndPublishLaborModelTemplateAsInternalAdmin"/>
+                    <include name="verifyAddEditSearchAndDisableTasksAsInternalAdmin"/>
+                    <include name="verifyDescriptionOfExternalAttributesAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="User Management Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.UserManagementTest">
+                <methods>
+                    <!--include name="verifyAddEditSearchAndDisableWorkRoleAsInternalAdmin"/-->
+                    <include name="verifyDynamicEmployeeGroupAsInternalAdmin"/>
+                    <include name="verifyManageJobTitleAsInternalAdmin"/>
+                    <!--include name="verifyWorkRoleE2EAndCopyWorkRoleAsInternalAdmin"/-->
+                    <include name="verifyE2EOfJobTitleGroupAsInternalAdmin"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Accrual Engine Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.AccrualEngineTest">
+                <methods>
+                    <include name="verifyAccrualEngineAsInternalAdminOfAccrualEngineTest"/>
+                    <include name="verifyTimeOffRequestImportAsInternalAdminOfAccrualEngineTest"/>
+                    <include name="verifyAccrualGMHolidayUIAsInternalAdminOfAccrualEngineTest"/>
+                    <include name="verifyScheduledHoursUIConfigurationAsInternalAdminOfAccrualEngineTest"/>
+                    <include name="verifyScheduledHoursWorksWellAsInternalAdminOfAccrualEngineTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Absent Management Template Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.AbsentManagementTemplateTest">
+                <methods>
+                    <include name="verifyTimeOffRequestRulesAsInternalAdmin"/>
+                    <include name="verifyAddEditSearchAndDisableTemplateAsInternalAdmin"/>
+                    <include name="verifyTemplateDetailsAsInternalAdmin"/>
+                    <include name="verifyTimeOffConfigurationAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Time Off Request Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.TimeOffRequestTest">
+                <methods>
+                    <include name="verifyTimeOffActivityAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    
+    <!--
+    <test name="TimeOffRequest Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.TimeOffRequestTest">
+                <methods>
+
+    <test name="AbsentManagementTemplateTest Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.AbsentManagementTemplateTest">
+                <methods>
+                    <include name="verifyTimeOffRequestRulesAsInternalAdmin"/>
+                    <include name="verifyAddEditSearchAndDisableTemplateAsInternalAdmin"/>
+                    <include name="verifyTemplateDetailsAsInternalAdmin"/>
+                    <include name="verifyTimeOffConfigurationAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Accrual Engine Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.AccrualEngineTest">
+                <methods>
+                    <include name="verifyAccrualGMHolidayUIAsInternalAdminOfAccrualEngineTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="TimeOffRequest Test">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.TimeOffRequestTest">
+                <methods>
+                 <include name="verifyTimeOffRequestRulesAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>-->
+
+ </suite> <!-- Suite -->

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="5" name="LegionTest1" >
+	<parameter name="environment" value="QA"/>
+ 
+    <listeners>
+ 		<listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+ 	</listeners>
+  
+   <suite-files>
+   <suite-file path="./ParallelTestCasestestng.xml" />
+   <suite-file path="./SequentialTestCasestestng.xml" />
+   
+  </suite-files>
+  
+   
+</suite> <!-- Suite -->
+

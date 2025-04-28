@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="10" name="LegionTest">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="District Regression OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+<!--======================================================Start - This is OP tests===================================================-->
+
+
+
+    <test name="District Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest">
+                <methods>
+
+                    <!--                    Upperfield test cases-->
+                    <include name="verifyDefaultOrganizationHierarchyShowAsInternalAdminForUpperFieldTile"/>
+                    <include name="verifyAddEditRemoveOrganizationHierarchyAsInternalAdminForUpperFieldTile"/>
+                    <include name="verifyAbnormalCasesOfOrganizationHierarchyAsInternalAdminForUpperFieldTile"/>
+                    <include name="verifyUpperFieldsListPageAndSearchFunctionAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyAddUpperFieldsWithDiffLevelAsInternalAdminForUpperFieldTile" />
+                    <include name="verifyDisableEnableUpperFieldFunctionAsInternalAdminForUpperFieldTile"/>
+                    <include name="verifyUpperFieldSmartCardDataAsInternalAdminForUpperFieldTile" />
+<!--                    <include name="verifyUpdateUpperFieldFunctionAsInternalAdminForUpperFieldTile" />-->
+                    <include name="verifyCancelCreatingUpperfieldFunctionAsInternalAdminForUpperFieldTile" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+</suite> <!-- Suite -->

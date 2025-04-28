@@ -1,0 +1,5 @@
+DisplayName,Name,LocationId,Type,ConfigType,AddressLine1,AddressLine2,City,State/Province,Country,ZipCode,TimeZone,PrimaryContact,PhoneNumber,Email,Parent,ImageUrl,Website,EffectiveDate,SourceLocationId,LocationGroupType,Status,LaunchDate,EndComparableStoreDate,ComparableLocation
+PCChild6169,PCChild6169,PCChild6169,Location,QA,Address 3,,city,SK,CA,12345,Africa/Ouagadougou,,,,PCParent6169,,,1/1/2022,,,Enabled,,,
+PCParent6169,PCParent6169,PCParent6169,LocationGroup,QA,Address 3,,city,SK,CA,12345,Africa/Ouagadougou,,,,5231,,,1/1/2022,,Parent_Child,Enabled,,,
+P2PChid6169,P2PChid6169,P2PChid6169,Location,QA,Address 3,,city,SK,CA,12345,Africa/Ouagadougou,,,,P2PParent6169,,,1/1/2022,,,Enabled,,,
+P2PParent6169,P2PParent6169,P2PParent6169,LocationGroup,QA,Address 3,,city,SK,CA,12345,Africa/Ouagadougou,,,,5231,,,1/1/2022,,P2P,Enabled,,,

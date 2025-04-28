@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose ="0" thread-count="5" name="LegionTestForRelease" parallel="tests">
+    <parameter name="environment" value="QA"/>
+    <parameter name="testRail" value="Yes"/>
+    <parameter name="testRailRunName" value="Smoke - Automation OP"/>
+    <listeners>
+        <listener class-name="com.legion.tests.testframework.LegionTestListener"></listener>
+    </listeners>
+
+    <!--======================================================Start - This is OP tests===================================================-->
+
+    <test name="Location Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsTest">
+                <methods>
+                    <include name="verifyCreateRegularLocationWithAllFieldsAndNavigateAsInternalAdmin"/>
+                    <include name="verifyCreateMockLocationAndNavigateAsInternalAdmin"/>
+                    <include name="verifyDisableEnableUpperFieldFunctionAsInternalAdmin"/>
+                    <include name="verifyAddUpperFieldsWithDiffLevelAsInternalAdmin"/>
+                    <include name="verifyGlobalDynamicGroupFunctionInLocationsTabAsInternalAdmin"/>
+                    <include name="verifyUserCanSeeEachTypeOfTemViaClickingTemNameAsInternalAdmin"/>
+                    <include name="verifyOverriddenOperatingHoursInLocationLevelAsInternalAdmin"/>
+                    <include name="verifyCreateNSOLocationAndNavigateAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="LocationsGroup Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LocationsGroupTestInOP">
+                <methods>
+                    <include name="verifyMSLocationGroupFunctionForRegularAsInternalAdmin"/>
+                    <include name="verifyP2PLocationGroupFunctionForRegularAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Navigation Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.NewNavigationFlowTest">
+                <methods>
+                    <include name="verifyNavigationBarSearchLocationFunctionAsInternalAdmin"/>
+                    <include name="verifyNavigationBarSearchDistrictFunctionInternalAdmin"/>
+                    <include name="verifyGlobalSearchFunctionOnNavigatorAsInternalCustomerAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="NewAccrualEngineTest">
+        <classes>
+            <class name="com.legion.tests.core.opEmployeeManagement.NewAccrualEngineTest">
+                <methods>
+                    <include name="verifyAccrualEngineWorksWellAfterEditingAsInternalAdmin" />
+                    <include name="verifyMonthlyDistributionMethodAsInternalAdmin" />
+                    <include name="verifyWeeklyDistributionMethodAsInternalAdmin" />
+                    <include name="verifyLumpSumDistributionMethodAsInternalAdmin" />
+                    <include name="verifyPayableHoursUIConfigurationAsInternalAdmin" />
+                    <include name="verifyPayableHoursUIConfigurationAsInternalAdmin" />
+                    <include name="verifyAccrualHistoryAsInternalAdmin" />
+                    <include name="verifyAccrualEngineWorksWellAfterImportingAsInternalAdmin" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Job Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.JobTest">
+                <methods>
+                    <include name="verifyAdjustForecastJobFunctionAsInternalAdmin"/>
+                    <include name="verifyAdjustBudgetJobFunctionAsInternalAdmin"/>
+                    <include name="verifyCreateScheduleJobFunctionAsInternalAdmin"/>
+                    <include name="Validate release schedule job function"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Configuration Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.ConfigurationTest">
+                <methods>
+                    <include name="workRoleSettingsE2EAsInternalAdmin"/>
+                    <include name="basicStaffingRuleE2EAsInternalAdmin"/>
+                    <include name="daysOfWeekE2EAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="BasicConfiguration Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.BasicConfigurationTest">
+                <methods>
+                    <include name="verifyMultipleTemplateE2EAsInternalAdmin"/>
+                    <include name="verifyCreateAllTypeTemplateAsInternalAdmin"/>
+                    <include name="verifyUserCanOpenEachTypeTemplateAsInternalAdmin"/>
+                    <include name="auditLogE2EAsInternalAdmin"/>
+                    <include name="verifyCreateEachTemplateWithDynamicGroupAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="UserManagement Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.UserManagementTest">
+                <methods>
+                    <include name="verifyWorkRoleE2EAndCopyWorkRoleAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="LaborModel Test">
+        <classes>
+            <class name="com.legion.tests.core.OpsPortal.LaborModelTest">
+                <methods>
+                    <include name="verifyCreateUpdateAndDeleteNewAttributeFunctionAsInternalAdmin"/>
+                    <include name="verifyUserCanCreateDeleteAndPublishLaborModelTemplateAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Plan Test">
+        <classes>
+            <class name="com.legion.tests.core.PlanTest">
+                <methods>
+                    <include name="verifyCreateAPlanAsInternalAdmin"/>
+                    <include name="verifyCreateAScenarioPlanAsInternalAdmin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->
