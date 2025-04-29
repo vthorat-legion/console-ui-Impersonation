@@ -17,14 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ImpersonationTest extends TestBase {
-
-////    //The location that has same BU and  different region with the default location
-//    private static String location2 = "5751200 - Ticket POS";
-//    private static String Location = "Index32";
-//    private static String District = "District";
-//    private static String Region = "Region";
-//    private static String BusinessUnit = "Business Unit";
-//    private static String hQ = "HQ";
+    
 
     @Override
     @BeforeMethod()
@@ -47,12 +40,10 @@ public class ImpersonationTest extends TestBase {
         try {
             DashboardPage dashboardPage = pageFactory.createConsoleDashboardPage();
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
-            ImpersonationPage CCImpersonation = pageFactory.ConsoleImpersonationPage ();
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser("Bea Mine");
             CCImpersonation.endImpersonationSession () ;
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Jack1 Keron");
-            CCImpersonation.endImpersonationSession ();
         }
         catch (Exception e){
             SimpleUtils.fail(e.getMessage(), false);
@@ -68,7 +59,7 @@ public class ImpersonationTest extends TestBase {
         try {
             DashboardPage dashboardPage = pageFactory.createConsoleDashboardPage();
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
-            ImpersonationPage CCImpersonation = pageFactory.ConsoleImpersonationPage ();
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
             CCImpersonation.endImpersonationSession();
@@ -87,7 +78,7 @@ public class ImpersonationTest extends TestBase {
         try {
             DashboardPage dashboardPage = pageFactory.createConsoleDashboardPage();
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
-            ImpersonationPage CCImpersonation = pageFactory.ConsoleImpersonationPage ();
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser("ed0209bd-9589-431f-9999-4f906b5a6fcc");
             CCImpersonation.endImpersonationSession();
@@ -106,7 +97,7 @@ public class ImpersonationTest extends TestBase {
         try {
             DashboardPage dashboardPage = pageFactory.createConsoleDashboardPage();
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
-            ImpersonationPage CCImpersonation = pageFactory.ConsoleImpersonationPage ();
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
             CCImpersonation.gotoControlsPage();
@@ -124,7 +115,7 @@ public class ImpersonationTest extends TestBase {
     @Test(dataProvider = "legionTeamCredentialsByRoles", dataProviderClass = CredentialDataProviderSource.class)
     public void E_VerifyImpersonatorNotAbleToEditLegionProfileAsInternalAdmin(String browser, String username, String password, String location) {
         try {
-            ImpersonationPage CCImpersonation = pageFactory.ConsoleImpersonationPage ();
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
             CCImpersonation.goToLegionProfile();
@@ -147,7 +138,7 @@ public class ImpersonationTest extends TestBase {
             scheduleCommonPage.goToSchedule();
            CreateSchedulePage createSchedulePage = new ConsoleCreateSchedulePage();
             createSchedulePage.unGenerateActiveScheduleScheduleWeek();
-            ImpersonationPage CCImpersonation = pageFactory.ConsoleImpersonationPage ();
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
             LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
@@ -158,8 +149,29 @@ public class ImpersonationTest extends TestBase {
             createSchedulePage.publishActiveSchedule();
             createSchedulePage.checkScheduleHistory();
             CCImpersonation.endImpersonationSession();
+        }
+        catch (Exception e){
+            SimpleUtils.fail(e.getMessage(), false);
+        }
+    }
 
-
+    @Automated(automated = "Automated")
+    @Owner(owner = "Vikas")
+    @Enterprise(name = "Forac_Enterprise")
+    @TestName(description = "Impersonator details shows in Timesheet History")
+    @Test(dataProvider = "legionTeamCredentialsByRoles", dataProviderClass = CredentialDataProviderSource.class)
+    public void G_VerifyTimesheetHistoryAsInternalAdmin(String browser, String username, String password, String location) {
+        try {
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.checkAcceptedToSAndImpersonateUser("Durbon Rawsdfg");
+            LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
+            locationsPage.searchSpecificLocationAndNavigateTo("Loc-01");
+            TimeSheetPage timesheet = pageFactory.createTimeSheetPage();
+            timesheet.clickOnTimeSheetConsoleMenu();
+            timesheet.addTimeClock("Sam Tosca","04:00pM");
+            timesheet.checkTimesheetHistory();
+            CCImpersonation.endImpersonationSession();
         }
         catch (Exception e){
             SimpleUtils.fail(e.getMessage(), false);

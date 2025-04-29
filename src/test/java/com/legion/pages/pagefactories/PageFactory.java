@@ -32,7 +32,7 @@ public interface PageFactory {
     
     SchedulePage createConsoleScheduleNewUIPage();
 
-    ImpersonationPage ConsoleImpersonationPage();
+    ImpersonationPage createConsoleImpersonationPage();
     
     TrafficForecastPage createTrafficForecastPage();
     

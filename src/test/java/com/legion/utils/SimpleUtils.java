@@ -290,6 +290,12 @@ public class SimpleUtils {
 //		}
 	}
 
+	public static void Skip(String message) {
+
+		ExtentTestManager.getTest().log(Status.SKIP , "<div class=\"row\" style=\"background-color:#FFB84D; color:white; padding: 7px 5px;\">" + message
+				+ "</div>");
+	}
+
 	public static HashMap<String, Object[][]> getEnvironmentBasedUserCredentialsFromJson(String fileName)
 	{
 

@@ -1,11 +1,14 @@
 package com.legion.pages.core;
 
+import com.aventstack.extentreports.Status;
 import com.legion.pages.BasePage;
 import com.legion.pages.TimeSheetPage;
+import com.legion.tests.testframework.ExtentTestManager;
 import com.legion.utils.MyThreadLocal;
 import com.legion.utils.SimpleUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -330,12 +333,137 @@ public class ConsoleTimeSheetPage extends BasePage implements TimeSheetPage{
 	@FindBy(css ="div.card-carousel-card.card-carousel-card-analytics-card-color-red")
 	private WebElement locationWithViolationSmartCard;
 
+	//Vikas
+	@FindBy(css ="#legion_cons_Timesheet_AddTimeclock_Add_btn")
+	private WebElement addTCEmployeeBtn;
+	@FindBy(css ="#legion_cons_Timesheet_AddTimeClock_AddClock_button")
+	private WebElement addTCClockBtn;
+	@FindBy(css ="a[class='dropdown-toggle']")
+	private WebElement action3dot;
+	@FindBy(css ="#legion_cons_Timesheet_AddTimeclockAddClockAfter_menu")
+	private WebElement actionAfterTCBtn;
+	@FindBy(css ="div[id='id_timesheet_clock_0_action_popup_trigger'] ul[class='dropdown-menu']")
+	private WebElement actionDropdownMenu;
+	@FindBy(xpath = "(//option[@value='string:ShiftEnd'][normalize-space()='Clock out'])[2]")
+	private WebElement clockOutDropdownWrapper;
+	@FindBy(css = "#legion_cons_Timesheet_AddTimeclock_Save_btn")
+	private WebElement TCSaveBtn;
+	@FindBy(xpath="(//input-field[@type='text'])[3]")
+	private WebElement addClockOutTime;
+	@FindBy(css=".lg-timeclock-activities")
+	private WebElement timesheetHistoryLogs;
+	@FindBy(xpath = "(//select[@ng-attr-id='{{$ctrl.inputName}}'])[5]")
+	private WebElement selectOtherPay;
+	@FindBy(css = "option[value='string:Overtime']")
+	private WebElement selectOvertimeOtherPay;
+   @FindBy(css = "#legion_cons_Timesheet_AddTimeclock_OtherPay_button")
+   private WebElement addOtherPay;
+	@FindBy(xpath = "//input-field[@id='id_timesheet_other-pay-editor_0_hours']")
+	private WebElement addOtherPayInput;
+
+	@FindBy(xpath = "//div[@class='lg-timeclock-activities__clockin-main ng-scope']")
+	private List<WebElement> commentHistoryLogs;
+
 	String timeSheetHeaderLabel = "Timesheet";
 	String locationFilterSpecificLocations = null;
 	List<String> locationName = new ArrayList<>();
 	public ConsoleTimeSheetPage(){
 		PageFactory.initElements(getDriver(), this);
 	}
+
+
+
+	@Override
+	public void checkTimesheetHistory() throws Exception {
+		waitForSeconds(5);
+		if (isElementLoaded(timesheetHistoryLogs, 10)) {
+			String fullLogText = timesheetHistoryLogs.getText();
+			boolean impersonatingFound = false;
+			for (WebElement historyEntry : commentHistoryLogs) {
+				waitForSeconds(5);
+				String entryText = historyEntry.getText();
+				if (entryText.toLowerCase().contains("impersonating")) {
+					impersonatingFound = true;
+					SimpleUtils.pass("Timesheet history shows impersonator details: " + entryText);
+				}
+			}
+			if (!impersonatingFound) {
+				SimpleUtils.fail("Timesheet history does not show impersonator details.", true);
+			}
+		} else {
+			SimpleUtils.fail("Timesheet history not loaded.", false);
+		}
+	}
+
+	@Override
+	public void addTimeClock(String employee, String endTime) throws Exception {
+		if (isElementLoaded(addTimeClockBtn, 5)) {
+			click(addTimeClockBtn);
+			// Select Employee
+			boolean isEmployeeFound = false;
+			List<WebElement> timeCLockEmployeeTextBox = addTCEmployeeField.findElements(By.cssSelector("input[type=\"text\"]"));
+			click(timeCLockEmployeeTextBox.get(0));
+//			timeCLockEmployeeTextBox.get(0).sendKeys(employee.split(" ")[0]);
+			timeCLockEmployeeTextBox.get(0).sendKeys(employee);
+			timeCLockEmployeeTextBox.get(0).sendKeys(Keys.TAB);
+			Thread.sleep(2000);
+			for (WebElement employeeOption : dropdownOptions) {
+				if (employeeOption.getText().toLowerCase().contains(employee.toLowerCase())) {
+					click(employeeOption);
+					isEmployeeFound = true;
+					break;
+				}
+			}
+			Thread.sleep(5000);
+			click(addTCEmployeeBtn);
+		}
+		if (isElementLoaded(addTCClockBtn, 10)) {
+			click(addTCClockBtn);
+			Thread.sleep(2000);
+			click(action3dot);
+			Thread.sleep(2000);
+			List<WebElement> afterClockOptions = actionDropdownMenu.findElements(By.tagName("li"));
+			if (afterClockOptions.size() >= 2) {
+				click(afterClockOptions.get(1));
+			}
+			Thread.sleep(2000);
+			click(clockOutDropdownWrapper);
+			Thread.sleep(2000);
+		}
+			if (isElementLoaded(addClockOutTime, 10)) {
+				moveToElementClickandSend(addClockOutTime, endTime);
+				Thread.sleep(2000);
+			}
+		if (isElementLoaded(addOtherPay, 10)) {
+			click(addOtherPay);
+			if (isElementLoaded(selectOtherPay, 10)) {
+				click(selectOtherPay);
+				click(selectOvertimeOtherPay);
+				waitForSeconds(2);
+				moveToElementClickandSend(addOtherPayInput, "2");
+			}
+			click(TCSaveBtn);
+		}
+		waitForSeconds(5);
+			if (isElementLoaded(timeSheetPopUpApproveBtn, 10)) {
+				click(timeSheetPopUpApproveBtn);
+				SimpleUtils.pass("Timesheet Created And Approved Successfully");
+			} else {
+				SimpleUtils.pass("Approve Button Not Enabled");
+			}
+
+		}
+
+		public void moveToElementClickandSend(WebElement element, String username) {
+			try {
+				waitUntilElementIsVisible(element);
+				Actions actions = new Actions(getDriver());
+				actions.moveToElement(element).click().sendKeys(username).sendKeys(Keys.ENTER).perform();
+
+			} catch (TimeoutException te) {
+				ExtentTestManager.getTest().log(Status.WARNING, te);
+			}
+		}
 
 	@Override
 	public void clickOnTimeSheetConsoleMenu() throws Exception {

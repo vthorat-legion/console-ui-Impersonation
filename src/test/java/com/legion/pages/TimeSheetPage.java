@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 
 public interface TimeSheetPage {
 
+	public void addTimeClock(String employee, String endTime) throws Exception  ;
+	public void checkTimesheetHistory() throws Exception ;
+
 	public void clickOnTimeSheetConsoleMenu()  throws Exception;
 
 	public boolean isTimeSheetPageLoaded() throws Exception;

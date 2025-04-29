@@ -14,7 +14,7 @@ public class ExtentReportManager {
 //    private static final String OUTPUT_FOLDER = "test-output/";
     private static final String OUTPUT_FOLDER = ".//Reports//";
 
-    private static final String FILE_NAME = "Impersonation.html";
+    private static final String FILE_NAME = "ImpersonationTest.html";
     
     public static ExtentReports getInstance() {
     	

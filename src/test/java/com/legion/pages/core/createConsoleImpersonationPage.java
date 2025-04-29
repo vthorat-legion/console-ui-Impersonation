@@ -21,9 +21,9 @@ import java.util.*;
 
 import static com.legion.utils.MyThreadLocal.getDriver;
 
-public class ConsoleImpersonationPage extends BasePage implements ImpersonationPage {
+public class createConsoleImpersonationPage extends BasePage implements ImpersonationPage {
 
-    public ConsoleImpersonationPage() {
+    public createConsoleImpersonationPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
@@ -61,7 +61,7 @@ public class ConsoleImpersonationPage extends BasePage implements ImpersonationP
     private WebElement legionProfileEditbtn;
     @FindBy(css = ".header-current-engagement-title.ng-binding")
     private WebElement switchToForac;
-    @FindBy(css = "div[class='sc-iKVquP jdvKll'] div:nth-child(1) div:nth-child(2)")
+    @FindBy(css = "div[class='sc-bXyoGE gvCcTf'] div:nth-child(1) div:nth-child(2)")
     private WebElement impersonatedUsername;
     @FindBy(css = ".tooltip-inner")
     private WebElement impersonateTooltip;
@@ -83,9 +83,9 @@ public class ConsoleImpersonationPage extends BasePage implements ImpersonationP
             boolean isButtonDisabled = isButtonVisiblyDisabled(impersonationbtn);
             if (isButtonDisabled) {
                 String tooltipText = impersonateTooltip.getText();
-                SimpleUtils.pass("The Impersonate button is disabled for: "+ Username +" Tooltip: " + tooltipText);
+                SimpleUtils.pass("The Impersonate Button Is Disabled For: "+ Username +" Tooltip: " + tooltipText);
             } else {
-                SimpleUtils.pass("The Impersonate button is visible and enabled for: "+ Username );
+                SimpleUtils.pass("The Impersonate Button Is Visible And Enabled For: "+ Username );
                 click(impersonationbtn);
                 waitForSeconds(5);
                 click(confirmPopup);
@@ -96,8 +96,9 @@ public class ConsoleImpersonationPage extends BasePage implements ImpersonationP
                 String ImpersonatedUsername = impersonatedUsername.getText();
                 String expected = "You are currently logged in as " + ImpersonatedUsername;
                 click(switchToForac);
+                waitForSeconds(2);
                 if (banner.equals(expected)) {
-                    SimpleUtils.pass("Successfully impersonated user with Banner = <b>" + banner + "</b>");
+                    SimpleUtils.pass("Successfully Impersonated User With Banner = <b>" + banner + "</b>");
                 } else {
                     SimpleUtils.fail("Impersonation failed. Banner text does not match. Expected: '"
                             + expected + "' but got: '" + banner + "'", false);
@@ -107,14 +108,12 @@ public class ConsoleImpersonationPage extends BasePage implements ImpersonationP
     }
     private boolean isButtonVisiblyDisabled(WebElement button) {
         try {
-            // Check CSS properties for opacity and pointer-events
             String opacity = button.getCssValue("opacity");
             String pointerEvents = button.getCssValue("pointer-events");
-
             // Button is visually disabled if opacity is 0 or pointer-events is none
             return "0".equals(opacity) || "none".equals(pointerEvents);
         } catch (Exception e) {
-            return false;  // If there's any error, we assume the button is not visually disabled
+            return false;
         }
     }
     @Override
@@ -123,11 +122,11 @@ public class ConsoleImpersonationPage extends BasePage implements ImpersonationP
         click(legionProfile);
             waitForSeconds(5);
         if (isElementLoaded(legionProfileEditbtn, 10)) {
-            SimpleUtils.fail("Legion Profile Edit Button is Visible", false);
+            SimpleUtils.fail("Legion Profile Edit Button Is Visible", false);
         }
         else {
             click(switchToForac);
-            SimpleUtils.pass("Legion Profile Edit Button is Disabled");
+            SimpleUtils.pass("Legion Profile Edit Button Is Disabled");
         }
     }
 
@@ -140,16 +139,15 @@ public class ConsoleImpersonationPage extends BasePage implements ImpersonationP
 
     }
 
-
     @Override
     public void endImpersonationSession () throws Exception {
         if (isElementLoaded(ImpersonateEndSession, 10)) {
             click(ImpersonateEndSession);
             waitForSeconds(20);
-            SimpleUtils.pass("Successfully End session of Impersonate user");
+            SimpleUtils.pass("Successfully End session of Impersonated user");
         }
         else {
-            SimpleUtils.pass("End Session button not visible");
+            SimpleUtils.pass("End Session Button Not Visible");
         }
     }
      

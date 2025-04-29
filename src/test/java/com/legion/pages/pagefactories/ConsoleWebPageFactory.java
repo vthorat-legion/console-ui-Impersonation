@@ -73,8 +73,8 @@ public class ConsoleWebPageFactory implements PageFactory {
 	}
 
 	@Override
-	public ImpersonationPage ConsoleImpersonationPage() {
-		return new ConsoleImpersonationPage();
+	public ImpersonationPage createConsoleImpersonationPage() {
+		return new createConsoleImpersonationPage();
 	}
 
 	@Override
