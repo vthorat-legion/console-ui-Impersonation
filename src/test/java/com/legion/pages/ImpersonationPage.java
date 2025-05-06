@@ -5,6 +5,11 @@ public interface ImpersonationPage {
     public void endImpersonationSession () throws Exception ;
     public void goToLegionProfile() throws Exception ;
     public void checkAcceptedToSAndImpersonateUser(String Username) throws Exception ;
+    public void createNewTemplate(String TemplateName) throws Exception ;
+    public void checkTemplateHistory(String TemplateName) throws Exception ;
+    public void switchToEmployeeView() throws Exception  ;
+    public void switchBackToManagerView() throws Exception ;
+    public void confirmSessionEnds() throws Exception ;
 //	public void clickOnScheduleConsoleMenuItem();
 //	public void goToSchedulePage() throws Exception;
 //	public boolean isSchedulePage() throws Exception;

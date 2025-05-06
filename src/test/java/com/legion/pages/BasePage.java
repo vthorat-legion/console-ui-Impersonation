@@ -449,10 +449,6 @@ public class BasePage {
         return element;
     }
 
-
-
-
-
 //    public boolean isElementPresent(WebElement displayElement){
 //        Wait<WebDriver> wait = new FluentWait<WebDriver>(
 //                MyThreadLocal.getDriver()).withTimeout(Duration.ofSeconds(5))

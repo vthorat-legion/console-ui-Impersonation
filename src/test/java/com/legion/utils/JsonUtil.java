@@ -147,5 +147,22 @@ public class JsonUtil {
         }
         return jsonNewArray;
     }
+    public static HashMap<String, Object> getImpersonationDataFromJsonFile(String pathname) {
+        HashMap<String, Object> impersonationData = new HashMap<>();
+
+        // Create ObjectMapper to read the JSON file
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+            // Read the file and map it to HashMap
+            impersonationData = mapper.readValue(new File(pathname), new TypeReference<HashMap<String, Object>>() {});
+        } catch (IOException e) {
+            System.err.println("Error reading the JSON file: " + pathname);
+            e.printStackTrace();
+        }
+
+        return impersonationData;
+    }
+
 
 }

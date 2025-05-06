@@ -49,6 +49,7 @@ public class SimpleUtils {
 	public static String fileDownloadPath = parameterMap.get("Download_File_Default_Dir");
 
 	private static HashMap< String,Object[][]> userCredentials = JsonUtil.getCredentialsFromJsonFile("src/test/resources/legionUsers.json");
+	private static HashMap<String, Object> impersonationData = JsonUtil.getImpersonationDataFromJsonFile("src/test/resources/ImpersonationsData.json");
 
 	private static Map<String, String> getPropertiesFromJsonFileWithOverrides(String pathname) {
 		String envFileLocation = System.getenv().getOrDefault("ENVCFG_FILE_LOCATION", pathname);
@@ -137,6 +138,10 @@ public class SimpleUtils {
 		userNameAndPwd.put("UserName",userNameFromJson);
 		userNameAndPwd.put("UserPassword",userPwdFromJson);
 		return userNameAndPwd;
+	}
+
+	public synchronized static HashMap<String, Object> getImpersonationData() {
+		return impersonationData;
 	}
 
 	public static String getListElementTextAsString(List<WebElement> listWebElements, String separator)

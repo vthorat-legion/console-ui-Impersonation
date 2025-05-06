@@ -403,7 +403,6 @@ public class ConsoleTimeSheetPage extends BasePage implements TimeSheetPage{
 			boolean isEmployeeFound = false;
 			List<WebElement> timeCLockEmployeeTextBox = addTCEmployeeField.findElements(By.cssSelector("input[type=\"text\"]"));
 			click(timeCLockEmployeeTextBox.get(0));
-//			timeCLockEmployeeTextBox.get(0).sendKeys(employee.split(" ")[0]);
 			timeCLockEmployeeTextBox.get(0).sendKeys(employee);
 			timeCLockEmployeeTextBox.get(0).sendKeys(Keys.TAB);
 			Thread.sleep(2000);

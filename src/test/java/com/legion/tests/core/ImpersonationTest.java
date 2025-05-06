@@ -16,8 +16,17 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
+import static com.legion.utils.SimpleUtils.getImpersonationData;
+
 public class ImpersonationTest extends TestBase {
-    
+    String userToSNotAccepted = ((Map<String, String>) getImpersonationData().get("users")).get("notAcceptedToS");
+    String userToSAccepted = ((Map<String, String>) getImpersonationData().get("users")).get("acceptedToS");
+    String timesheetUser = ((Map<String, String>) getImpersonationData().get("users")).get("timesheetUser");
+    String locations = ((Map<String, String>) getImpersonationData().get("locations")).get("locations");
+    String timesheetTime = ((Map<String, String>) getImpersonationData().get("timesheet")).get("time");
+    String templateName = ((Map<String, String>) getImpersonationData().get("template")).get("templateName");
+    String workerId = ((Map<String, String>) getImpersonationData().get("workerIds")).get("worker1");
+    String switchViewManager= ((Map<String, String>) getImpersonationData().get("users")).get("ManagerSwitchView");
 
     @Override
     @BeforeMethod()
@@ -42,7 +51,7 @@ public class ImpersonationTest extends TestBase {
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Bea Mine");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSNotAccepted);
             CCImpersonation.endImpersonationSession () ;
         }
         catch (Exception e){
@@ -61,7 +70,7 @@ public class ImpersonationTest extends TestBase {
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             CCImpersonation.endImpersonationSession();
         }
         catch (Exception e){
@@ -80,7 +89,7 @@ public class ImpersonationTest extends TestBase {
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("ed0209bd-9589-431f-9999-4f906b5a6fcc");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(workerId);
             CCImpersonation.endImpersonationSession();
         }
         catch (Exception e){
@@ -99,7 +108,7 @@ public class ImpersonationTest extends TestBase {
             SimpleUtils.assertOnFail("DashBoard Page not loaded Successfully!",dashboardPage.isDashboardPageLoaded() , false);
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             CCImpersonation.gotoControlsPage();
             CCImpersonation.endImpersonationSession();
 
@@ -117,7 +126,7 @@ public class ImpersonationTest extends TestBase {
         try {
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             CCImpersonation.goToLegionProfile();
             CCImpersonation.endImpersonationSession();
         }
@@ -140,9 +149,9 @@ public class ImpersonationTest extends TestBase {
             createSchedulePage.unGenerateActiveScheduleScheduleWeek();
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Dimphy Cakir");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
-            locationsPage.searchSpecificLocationAndNavigateTo("Loc-01");
+            locationsPage.searchSpecificLocationAndNavigateTo(locations);
             scheduleCommonPage.clickOnScheduleConsoleMenuItem();
             scheduleCommonPage.goToSchedule();
             createSchedulePage.createScheduleForNonDGFlowNewUIWithoutUpdate();
@@ -164,14 +173,59 @@ public class ImpersonationTest extends TestBase {
         try {
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser("Durbon Rawsdfg");
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
-            locationsPage.searchSpecificLocationAndNavigateTo("Loc-01");
+            locationsPage.searchSpecificLocationAndNavigateTo(locations);
             TimeSheetPage timesheet = pageFactory.createTimeSheetPage();
             timesheet.clickOnTimeSheetConsoleMenu();
-            timesheet.addTimeClock("Sam Tosca","04:00pM");
+            timesheet.addTimeClock(timesheetUser, timesheetTime);
             timesheet.checkTimesheetHistory();
             CCImpersonation.endImpersonationSession();
+        }
+        catch (Exception e){
+            SimpleUtils.fail(e.getMessage(), false);
+        }
+    }
+
+    @Automated(automated = "Automated")
+    @Owner(owner = "Vikas")
+    @Enterprise(name = "Forac_Enterprise")
+    @TestName(description = "Impersonator details shows in Template History")
+    @Test(dataProvider = "legionTeamCredentialsByRoles", dataProviderClass = CredentialDataProviderSource.class)
+    public void H_VerifyTemplateHistoryAsInternalAdmin(String browser, String username, String password, String location) {
+        try {
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.createNewTemplate(templateName);
+            CCImpersonation.checkTemplateHistory(templateName);
+            CCImpersonation.endImpersonationSession();
+        }
+        catch (Exception e){
+            SimpleUtils.fail(e.getMessage(), false);
+        }
+    }
+
+    @Automated(automated = "Automated")
+    @Owner(owner = "Vikas")
+    @Enterprise(name = "Forac_Enterprise")
+    @TestName(description = "Impersonator Session End From Manager and Employee View Page")
+    @Test(dataProvider = "legionTeamCredentialsByRoles", dataProviderClass = CredentialDataProviderSource.class)
+    public void I_VerifySuccessfullyEndSessionFromManagerEmployeeViewPageAsInternalAdmin(String browser, String username, String password, String location) {
+        try {
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(switchViewManager);
+            CCImpersonation.switchToEmployeeView();
+            CCImpersonation.endImpersonationSession();
+            CCImpersonation.confirmSessionEnds();
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(switchViewManager);
+            CCImpersonation.switchBackToManagerView();
+            CCImpersonation.endImpersonationSession();
+            CCImpersonation.confirmSessionEnds();
+
         }
         catch (Exception e){
             SimpleUtils.fail(e.getMessage(), false);
