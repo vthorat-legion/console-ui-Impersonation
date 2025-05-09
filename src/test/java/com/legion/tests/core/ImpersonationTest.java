@@ -243,15 +243,15 @@ public class ImpersonationTest extends TestBase {
     public void J_VerifySuccessfullyEndSessionWithSwitchLocationAsInternalAdmin(String browser, String username, String password, String location) {
         try {
             LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
-//            locationsPage.searchSpecificLocationAndNavigateTo(location2);
+            locationsPage.searchSpecificLocationAndNavigateTo(location2);
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser(manager);
             CCImpersonation.endImpersonationSession();
-//            locationsPage.searchSpecificLocationAndNavigateTo(upperfield);
-//            CCImpersonation.gotoControlsPage();
-//            CCImpersonation.checkAcceptedToSAndImpersonateUser(teamMember);
-//            CCImpersonation.endImpersonationSession();
+            locationsPage.searchSpecificLocationAndNavigateTo(upperfield);
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(teamMember);
+            CCImpersonation.endImpersonationSession();
         }
         catch (Exception e){
             SimpleUtils.fail(e.getMessage(), false);
