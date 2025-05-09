@@ -22,11 +22,14 @@ public class ImpersonationTest extends TestBase {
     String userToSNotAccepted = ((Map<String, String>) getImpersonationData().get("users")).get("notAcceptedToS");
     String userToSAccepted = ((Map<String, String>) getImpersonationData().get("users")).get("acceptedToS");
     String timesheetUser = ((Map<String, String>) getImpersonationData().get("users")).get("timesheetUser");
-    String locations = ((Map<String, String>) getImpersonationData().get("locations")).get("locations");
+    String manager= ((Map<String, String>) getImpersonationData().get("users")).get("Manager");
+    String teamMember = ((Map<String, String>) getImpersonationData().get("users")).get("TeamMember");
+    String location1 = ((Map<String, String>) getImpersonationData().get("locations")).get("location1");
+    String location2 = ((Map<String, String>) getImpersonationData().get("locations")).get("location2");
+    String upperfield = ((Map<String, String>) getImpersonationData().get("locations")).get("upperfieldLocation");
     String timesheetTime = ((Map<String, String>) getImpersonationData().get("timesheet")).get("time");
     String templateName = ((Map<String, String>) getImpersonationData().get("template")).get("templateName");
     String workerId = ((Map<String, String>) getImpersonationData().get("workerIds")).get("worker1");
-    String switchViewManager= ((Map<String, String>) getImpersonationData().get("users")).get("ManagerSwitchView");
 
     @Override
     @BeforeMethod()
@@ -43,7 +46,7 @@ public class ImpersonationTest extends TestBase {
     @Automated(automated = "Automated")
     @Owner(owner = "Vikas")
     @Enterprise(name = "Forac_Enterprise")
-    @TestName(description = "Unable to impersonate not accepted Term of Service (ToS) user")
+    @TestName(description = "Verify that the Impersonate button is enabled once the user has accepted the Legion terms of service (ToS)")
     @Test(dataProvider = "legionTeamCredentialsByRoles", dataProviderClass = CredentialDataProviderSource.class)
     public void A_VerifyUnableToImpersonateNotAcceptedToSUserAsInternalAdmin(String browser, String username, String password, String location) {
         try {
@@ -151,7 +154,7 @@ public class ImpersonationTest extends TestBase {
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
-            locationsPage.searchSpecificLocationAndNavigateTo(locations);
+            locationsPage.searchSpecificLocationAndNavigateTo(location1);
             scheduleCommonPage.clickOnScheduleConsoleMenuItem();
             scheduleCommonPage.goToSchedule();
             createSchedulePage.createScheduleForNonDGFlowNewUIWithoutUpdate();
@@ -175,7 +178,7 @@ public class ImpersonationTest extends TestBase {
             CCImpersonation.gotoControlsPage();
             CCImpersonation.checkAcceptedToSAndImpersonateUser(userToSAccepted);
             LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
-            locationsPage.searchSpecificLocationAndNavigateTo(locations);
+            locationsPage.searchSpecificLocationAndNavigateTo(location1);
             TimeSheetPage timesheet = pageFactory.createTimeSheetPage();
             timesheet.clickOnTimeSheetConsoleMenu();
             timesheet.addTimeClock(timesheetUser, timesheetTime);
@@ -216,16 +219,39 @@ public class ImpersonationTest extends TestBase {
         try {
             ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser(switchViewManager);
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(manager);
             CCImpersonation.switchToEmployeeView();
             CCImpersonation.endImpersonationSession();
             CCImpersonation.confirmSessionEnds();
             CCImpersonation.gotoControlsPage();
-            CCImpersonation.checkAcceptedToSAndImpersonateUser(switchViewManager);
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(manager);
             CCImpersonation.switchBackToManagerView();
             CCImpersonation.endImpersonationSession();
             CCImpersonation.confirmSessionEnds();
 
+        }
+        catch (Exception e){
+            SimpleUtils.fail(e.getMessage(), false);
+        }
+    }
+
+    @Automated(automated = "Automated")
+    @Owner(owner = "Vikas")
+    @Enterprise(name = "Forac_Enterprise")
+    @TestName(description = "Impersonate User With Location Switch Condition")
+    @Test(dataProvider = "legionTeamCredentialsByRoles", dataProviderClass = CredentialDataProviderSource.class)
+    public void J_VerifySuccessfullyEndSessionWithSwitchLocationAsInternalAdmin(String browser, String username, String password, String location) {
+        try {
+            LocationSelectorPage locationsPage = pageFactory.createLocationSelectorPage();
+//            locationsPage.searchSpecificLocationAndNavigateTo(location2);
+            ImpersonationPage CCImpersonation = pageFactory.createConsoleImpersonationPage ();
+            CCImpersonation.gotoControlsPage();
+            CCImpersonation.checkAcceptedToSAndImpersonateUser(manager);
+            CCImpersonation.endImpersonationSession();
+//            locationsPage.searchSpecificLocationAndNavigateTo(upperfield);
+//            CCImpersonation.gotoControlsPage();
+//            CCImpersonation.checkAcceptedToSAndImpersonateUser(teamMember);
+//            CCImpersonation.endImpersonationSession();
         }
         catch (Exception e){
             SimpleUtils.fail(e.getMessage(), false);

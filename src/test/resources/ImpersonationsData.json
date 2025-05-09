@@ -6,14 +6,18 @@
   "users": {
     "notAcceptedToS": "Arnold D",
     "acceptedToS": "Dimphy Cakir",
-    "timesheetUser": "Kirit Roman",
-    "ManagerSwitchView": "Olavi Korkeaoja"
+    "timesheetUser": "Castrin R",
+    "Manager": "Olavi Korkeaoja",
+    "TeamMember" : "Jack1 Keron"
   },
   "locations": {
-    "locations": "Loc-01"
+    "location1": "Loc-01",
+    "location2": "Inorganic123",
+    "upperfieldLocation1": "Region1",
+    "upperfieldLocation": "Market-1"
   },
   "timesheet": {
-    "time": "08:00AM"
+    "time": "02:00AM"
   },
   "template": {
     "templateName": "Impersonation",
